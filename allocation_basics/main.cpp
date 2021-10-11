@@ -4,7 +4,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     cout << argv[1] << endl;
-    if (argv[1]=="add") {
+    if (argv[1]=="add") { //strcmp!! zmienic
         cout << "nice" <<endl;
     }
     /*
