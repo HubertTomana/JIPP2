@@ -4,7 +4,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     cout << argv[1] << endl;
-    if (argv[1]=="add") { //strcmp!! zmienic
+    if (argv[1]=="add") { //TODO strcmp!! zmienic, ewentualnie int licz = stoi ( Str:argv[1]); <- do tego trzeba tez #include <string>
         cout << "nice" <<endl;
     }
     /*
