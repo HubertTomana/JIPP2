@@ -4,7 +4,9 @@
 
 using namespace std;
 
-double add (int x, int y);
+int add (int x, int y);
+int sub (int x, int y);
+double vol (int a, int b, int h, int H);
 void help ();
 
 int main(int argc, char *argv[]) {
@@ -17,11 +19,19 @@ int main(int argc, char *argv[]) {
         cout << "wynik to : " << wynik << endl;
     }
     else if (strcmp(argv[1],"subtract")==0) {
-
+        int x = stoi(argv[2]);
+        int y = stoi (argv[3]);
+        int wynik = sub(x,y);
+        cout << "wynik to : " << wynik << endl;
     }
 
     else if (strcmp(argv[1],"volume")==0) {
-
+        int a = stoi(argv[2]);
+        int b = stoi (argv[3]);
+        int h = stoi (argv[4]);
+        int H = stoi (argv[5]);
+        double wynik = vol(a,b,h, H);
+        cout << "wynik to : " << wynik << endl;
     }
     else if (strcmp(argv[1],"help")==0) {
         help ();
@@ -34,8 +44,16 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-double add (int x, int y) {
+int add (int x, int y) {
     return x+y;
+}
+
+int sub (int x, int y) {
+    return x-y;
+}
+
+double vol (int a, int b, int h, int H) {
+    return ((a+b)*h)/2*H;
 }
 
 void help () {
