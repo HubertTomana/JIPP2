@@ -4,33 +4,23 @@
 
 using namespace std;
 
-int add (int x, int y);
-int sub (int x, int y);
-double vol (int a, int b, int h, int H);
+int add (string x, string y);
+int sub (string x, string y);
+double vol (string x, string y, string z, string q);
 void help ();
 
 int main(int argc, char *argv[]) {
-    //cout << argv[1] << endl;
     if (strcmp(argv[1],"add")==0) {
-        //cout << argv[2] << argv[3] << endl;
-        int x = stoi(argv[2]);
-        int y = stoi (argv[3]);
-        int wynik = add(x, y);
+        int wynik = add(argv[2], argv[3]);
         cout << "wynik to : " << wynik << endl;
     }
     else if (strcmp(argv[1],"subtract")==0) {
-        int x = stoi(argv[2]);
-        int y = stoi (argv[3]);
-        int wynik = sub(x,y);
+        int wynik = sub(argv[2],argv[3]);
         cout << "wynik to : " << wynik << endl;
     }
 
     else if (strcmp(argv[1],"volume")==0) {
-        int a = stoi(argv[2]);
-        int b = stoi (argv[3]);
-        int h = stoi (argv[4]);
-        int H = stoi (argv[5]);
-        double wynik = vol(a,b,h, H);
+        double wynik = vol(argv[2],argv[3],argv[4], argv[5]);
         cout << "wynik to : " << wynik << endl;
     }
     else if (strcmp(argv[1],"help")==0) {
@@ -44,15 +34,23 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int add (int x, int y) {
-    return x+y;
+int add (string x, string y) {
+    int a = stoi (x);
+    int b = stoi (y);
+    return a+b;
 }
 
-int sub (int x, int y) {
-    return x-y;
+int sub (string x, string y) {
+    int a = stoi(x);
+    int b = stoi (y);
+    return a-b;
 }
 
-double vol (int a, int b, int h, int H) {
+double vol (string x, string y, string z, string q) {
+    int a = stoi (x);
+    int b = stoi (y);
+    int h = stoi (z);
+    int H = stoi (q);
     return ((a+b)*h)/2*H;
 }
 
