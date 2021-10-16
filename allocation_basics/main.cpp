@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         int h = stoi (argv[4]);
         int H = stoi (argv[5]);
         double wynik = vol(a,b,h, H);
-        cout << "wynik to : " << wynik << endl;
+        cout << "wynik to  : " << wynik << endl;
     }
     else if (strcmp(argv[1],"help")==0) {
         help ();
