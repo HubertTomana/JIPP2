@@ -1,45 +1,43 @@
 #include <iostream>
+#include <cstring>
+#include <string>
 
 using namespace std;
 
+double add (int x, int y);
+void help ();
+
 int main(int argc, char *argv[]) {
-    cout << argv[1] << endl;
-    if (argv[1]=="add") { //TODO strcmp!! zmienic, ewentualnie int licz = stoi ( Str:argv[1]); <- do tego trzeba tez #include <string>
-        cout << "nice" <<endl;
+    //cout << argv[1] << endl;
+    if (strcmp(argv[1],"add")==0) {
+        //cout << argv[2] << argv[3] << endl;
+        int x = stoi(argv[2]);
+        int y = stoi (argv[3]);
+        int wynik = add(x, y);
+        cout << "wynik to : " << wynik << endl;
     }
-    /*
+    else if (strcmp(argv[1],"subtract")==0) {
 
-    for (int i=0; i<argc; ++i) {
-        cout << argv[i] << endl; //pierwszy argument ktory wpiszemy wchodzi na argv[1], poniewaz argv[0] to cała scieżka do .exe :)
-    }
-
-    int *n = new int;
-    int k;
-
-    cout << n << endl << *n << endl << &n << endl << &k << endl;
-    //n wskazuje na int,  *n wartosc int, &n wartosc wskaznika, &k adres int k;
-    //zeby przepisac wartosc k do n  :  int*n=&k
-
-    delete n;
-
-    int *tab = new int[5];
-    delete[] tab;
-
-    int **tab2 = new int *[5]; //deklaracja tablicy dwuwymiarowej
-    for (int i = 0; i < 5; ++i) { //ctrl+alt+L -> czyszczenie kodu
-        tab2[i] = new int[5];
     }
 
-    for (int i = 0; i < 5; ++i) {
-        delete[] tab2[i];
+    else if (strcmp(argv[1],"volume")==0) {
+
     }
-    delete[] tab2;
+    else if (strcmp(argv[1],"help")==0) {
+        help ();
 
-    int tab3[3] = {3, 2, 1};
-    // potem juz nie mozna tab3[3] = {3, 2, 1};, bo to sie odnosi juz do czwartego miejsca w tablicy, ktory nawet nie istnieje
-
-    */
-
-
+    }
+    else {
+        cout << "Niepoprawny wybor operacji" << endl;
+        help();
+    }
     return 0;
+}
+
+double add (int x, int y) {
+    return x+y;
+}
+
+void help () {
+    cout << "ogarnij sie" << endl;
 }
