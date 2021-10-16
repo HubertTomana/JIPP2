@@ -51,7 +51,12 @@ double vol (string x, string y, string z, string q) {
     int b = stoi (y);
     int h = stoi (z);
     int H = stoi (q);
-    return ((a+b)*h)/2*H;
+    if (a<0 || b<0 || h<0 || H<0) {
+        cout << "Jedna z dlugosci bokow jest ujemna" << endl;
+        help();
+        return 0;
+    }
+    return ((a+b)*h)/2.*H;
 }
 
 void help () {
