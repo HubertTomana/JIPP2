@@ -60,5 +60,19 @@ double vol (string x, string y, string z, string q) {
 }
 
 void help () {
-    cout << "ogarnij sie" << endl;
+    cout << "Simple calculatur\n"
+            "simpleCalc [nazwa dzialania]\n"
+            "\n"
+            "Dzialania:\n"
+            "add [a] [b]\n"
+            "    Dodawanie dwoch liczb ([a] i [b]) calkowitych. "
+            "\n"
+            "substract [a] [b]\n"
+            "   Odejmowanie dwoch liczb ([a] i [b]) calkowitych. "
+            "\n"
+            "volume [a] [b] [h] [H]\n"
+            "   Obliczanie objetosci graniastoslupa prostego o wysokosci H oraz o podstawie trapezu o bokach a i b oraz wysokosci h"
+            "\n"
+            "help\n"
+            "   Wyswietlanie dokumentacji"<< endl;
 }
