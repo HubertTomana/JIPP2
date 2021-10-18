@@ -1,0 +1,10 @@
+#ifndef JIPP2_CALC_H
+#define JIPP2_CALC_H
+
+using namespace std;
+int add (string x, string y);
+int sub (string x, string y);
+double vol (string x, string y, string z, string q);
+void help ();
+
+#endif //JIPP2_CALC_H
