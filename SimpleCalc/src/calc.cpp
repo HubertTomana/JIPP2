@@ -1,5 +1,7 @@
 #include <iostream>
-#include <cstring>
+#include "calc.h"
+
+using namespace std;
 
 int add (string x, string y) {
     int a = stoi (x);
@@ -27,7 +29,7 @@ double vol (string x, string y, string z, string q) {
 }
 
 void help () {
-    cout << "Simple calculatur\n"
+    cout << "Simple calculator\n"
             "simpleCalc [nazwa dzialania]\n"
             "\n"
             "Dzialania:\n"
