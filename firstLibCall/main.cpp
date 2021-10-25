@@ -1,9 +1,9 @@
 #include <iostream>
-#include "firstLib/lib.h"
+#include "../firstLib/include/lib.h"
 
 using namespace std;
 
 int main (int argc, char* argv[]) {
-    Itiswork();
+    itIsWork();
     return 0;
 }

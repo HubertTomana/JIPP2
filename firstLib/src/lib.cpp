@@ -3,6 +3,6 @@
 //
 #include "lib.h"
 
-void ItIsWork () {
+void itIsWork () {
     cout << "Yes it works!" <<endl;
 }
