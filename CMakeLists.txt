@@ -13,3 +13,7 @@ add_subdirectory(Zadanko1_2510)
 add_subdirectory(Samochody)
 
 add_subdirectory(Zadanko_klasy)
+
+add_subdirectory(matrixLib)
+
+add_subdirectory(matrixApp)
