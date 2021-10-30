@@ -3,6 +3,7 @@
 //
 #include "lib.h"
 
+
 int **addMatrix (int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn) {
     int **mac_wynik = new int *[ilosc_wierszy];
     for (int i=0; i<ilosc_wierszy; ++i) {
@@ -13,14 +14,14 @@ int **addMatrix (int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn) 
             mac_wynik[i][j] = mac_a[i][j] + mac_b[i][j];
         }
     }
-
+/*
     for (int i=0; i<ilosc_wierszy; ++i) {
         for (int j=0; j<ilosc_kolumn; ++j) {
             cout << mac_wynik[i][j] << " ";
         }
         cout << endl;
     }
-
+*/
 
 
     return mac_wynik;
@@ -59,3 +60,30 @@ int **multiplyMatrix (int **mac_a, int **mac_b, int ilosc_wierszy_mac_a, int ilo
     return mac_wynik;
 }
 
+int **multiplyByScalar (int **mac, int ilosc_wierszy, int ilosc_kolumn, int skalar) {
+    int **mac_wynik = new int *[ilosc_wierszy];
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        mac_wynik[i] = new int [ilosc_kolumn];
+    }
+
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        for (int j=0; j<ilosc_kolumn; ++j) {
+            mac_wynik[i][j]=mac[i][j]*skalar;
+        }
+    }
+    return mac_wynik;
+}
+
+int **transpozeMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    int **mac_wynik = new int *[ilosc_kolumn];
+    for (int i=0; i<ilosc_kolumn; ++i) {
+        mac_wynik[i] = new int [ilosc_wierszy];
+    }
+
+    for (int i=0; i<ilosc_kolumn; ++i) {
+        for (int j=0; j<ilosc_wierszy; ++j) {
+            mac_wynik[i][j]=mac[j][i];
+        }
+    }
+    return mac_wynik;
+}
