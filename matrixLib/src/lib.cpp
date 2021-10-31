@@ -88,13 +88,34 @@ int **transpozeMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     return mac_wynik;
 }
 
+int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi) {
+    int **mac_wynik = new int *[ilosc_wierszy];
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        mac_wynik[i] = new int [ilosc_kolumn];
+    }
+    mac_wynik=mac;
+    for (int i=1; i<stopien_potegi; ++i) {
+         mac_wynik=multiplyMatrix(mac_wynik, mac, ilosc_wierszy, ilosc_kolumn, ilosc_kolumn);
+    }
+    return mac_wynik;
+}
+
+bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        for (int j=0; j<ilosc_kolumn; ++j) {
+            if (i!=j && mac[i][j]==0)
+                return false;
+        }
+    }
+    return true;
+}
+
+
 void swap (int *a, int *b) {
     int *pom = a;
     a=b;
     b=pom;
 }
-
-
 
 void sortRow (int *tab, int ilosc_kolumn) {
     for (int i=0; i<ilosc_kolumn; ++i) {

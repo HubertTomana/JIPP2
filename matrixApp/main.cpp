@@ -182,6 +182,76 @@ int main (int argc, char* argv[]) {
         }
     }
 
+    if (strcmp(argv[1], "powerMatrix") == 0 ) {
+        int ilosc_wierszy;
+        int ilosc_kolumn;
+        unsigned int potega = atoi(argv[2]);
+        cout << "Podaj liczbe wierszy i kolumn" << endl;
+        cin >> ilosc_wierszy >> ilosc_kolumn;
+        int **mac = new int *[ilosc_wierszy];
+
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            mac[i] = new int[ilosc_kolumn];
+        }
+        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            for (int j = 0; j < ilosc_kolumn; ++j) {
+                cin >> mac[i][j];
+            }
+            cout << "Nastepna linia" << endl;
+        }
+        int **macierz = powerMatrix(mac,ilosc_wierszy,ilosc_kolumn,potega);
+
+        for (int i=0; i<ilosc_wierszy; ++i) {
+            for (int j=0; j<ilosc_kolumn; ++j) {
+                cout << macierz[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
+    int ilosc_wierszy;
+    int ilosc_kolumn;
+    cout << "Podaj liczbe wierszy i kolumn" << endl;
+    cin >> ilosc_wierszy >> ilosc_kolumn;
+    int **mac = new int *[ilosc_wierszy];
+
+    for (int i = 0; i < ilosc_wierszy; ++i) {
+        mac[i] = new int[ilosc_kolumn];
+    }
+    cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+    for (int i = 0; i < ilosc_wierszy; ++i) {
+        for (int j = 0; j < ilosc_kolumn; ++j) {
+            cin >> mac[i][j];
+        }
+        cout << "Nastepna linia" << endl;
+    }
+
+    cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+}
+
+
+
+
+    if (strcmp(argv[1], "swap") == 0 ) {
+        int a=2;
+        int b=3;
+        swap(a,b);
+        cout << a << " " << b << endl;
+    }
+
+    if (strcmp(argv[1], "sortRow") == 0 ) {
+        int a[4];
+        a[0]=4;
+        a[1]=2;
+        a[2]=7;
+        a[3]=2;
+        sortRow(a, 4);
+        for (int i=0; i<4; ++i)
+            cout << a[i] << " ";
+    }
+
     if (strcmp(argv[1], "sortRowsInMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
@@ -207,24 +277,6 @@ int main (int argc, char* argv[]) {
             }
             cout << endl;
         }
-    }
-
-    if (strcmp(argv[1], "swap") == 0 ) {
-        int a=2;
-        int b=3;
-        swap(a,b);
-        cout << a << " " << b << endl;
-    }
-
-    if (strcmp(argv[1], "sortRow") == 0 ) {
-        int a[4];
-        a[0]=4;
-        a[1]=2;
-        a[2]=7;
-        a[3]=2;
-        sortRow(a, 4);
-        for (int i=0; i<4; ++i)
-            cout << a[i] << " ";
     }
 
     return 0;
