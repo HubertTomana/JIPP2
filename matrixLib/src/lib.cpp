@@ -87,3 +87,27 @@ int **transpozeMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     }
     return mac_wynik;
 }
+
+void swap (int *a, int *b) {
+    int *pom = a;
+    a=b;
+    b=pom;
+}
+
+
+
+void sortRow (int *tab, int ilosc_kolumn) {
+    for (int i=0; i<ilosc_kolumn; ++i) {
+        for (int j=0; j<ilosc_kolumn-i; ++j) {
+            if (tab[j]>tab[j+1])
+                swap(tab[j], tab[j+1]);
+        }
+    }
+}
+
+int **sortRowsInMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        sortRow(mac[i], ilosc_kolumn);
+    }
+    return mac;
+}
