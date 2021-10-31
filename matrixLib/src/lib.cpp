@@ -100,6 +100,21 @@ int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int 
     return mac_wynik;
 }
 
+int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    for (int i=1; i<ilosc_wierszy-1; ++i) {
+        for (int j=i+1; j<ilosc_wierszy; ++j) {
+            for (int k=i+1; k<ilosc_wierszy; ++k) {
+                mac[j][k] = mac[j][k] - mac[j][i]/mac[i][i]*mac[i][k];
+            }
+        }
+    }
+    int det=1;
+    for (int i=1; i<ilosc_wierszy; ++i) {
+        det=det*mac[i][i];
+    }
+    return det;
+}
+
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     for (int i=0; i<ilosc_wierszy; ++i) {
         for (int j=0; j<ilosc_kolumn; ++j) {
@@ -109,7 +124,6 @@ bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     }
     return true;
 }
-
 
 void swap (int *a, int *b) {
     int *pom = a;

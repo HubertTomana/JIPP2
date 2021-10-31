@@ -210,6 +210,27 @@ int main (int argc, char* argv[]) {
         }
     }
 
+    if (strcmp(argv[1], "determinantMatrix") == 0 ) {
+        int ilosc_wierszy;
+        int ilosc_kolumn;
+        cout << "Podaj liczbe wierszy i kolumn" << endl;
+        cin >> ilosc_wierszy >> ilosc_kolumn;
+        int **mac = new int *[ilosc_wierszy];
+
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            mac[i] = new int[ilosc_kolumn];
+        }
+        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            for (int j = 0; j < ilosc_kolumn; ++j) {
+                cin >> mac[i][j];
+            }
+            cout << "Nastepna linia" << endl;
+        }
+
+        cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+    }
+
     if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
     int ilosc_wierszy;
     int ilosc_kolumn;
@@ -230,9 +251,6 @@ int main (int argc, char* argv[]) {
 
     cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
 }
-
-
-
 
     if (strcmp(argv[1], "swap") == 0 ) {
         int a=2;
