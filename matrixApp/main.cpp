@@ -232,25 +232,25 @@ int main (int argc, char* argv[]) {
     }
 
     if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
-    int ilosc_wierszy;
-    int ilosc_kolumn;
-    cout << "Podaj liczbe wierszy i kolumn" << endl;
-    cin >> ilosc_wierszy >> ilosc_kolumn;
-    int **mac = new int *[ilosc_wierszy];
+        int ilosc_wierszy;
+        int ilosc_kolumn;
+        cout << "Podaj liczbe wierszy i kolumn" << endl;
+        cin >> ilosc_wierszy >> ilosc_kolumn;
+        int **mac = new int *[ilosc_wierszy];
 
-    for (int i = 0; i < ilosc_wierszy; ++i) {
-        mac[i] = new int[ilosc_kolumn];
-    }
-    cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-    for (int i = 0; i < ilosc_wierszy; ++i) {
-        for (int j = 0; j < ilosc_kolumn; ++j) {
-            cin >> mac[i][j];
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            mac[i] = new int[ilosc_kolumn];
         }
-        cout << "Nastepna linia" << endl;
-    }
+        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+        for (int i = 0; i < ilosc_wierszy; ++i) {
+            for (int j = 0; j < ilosc_kolumn; ++j) {
+                cin >> mac[i][j];
+            }
+            cout << "Nastepna linia" << endl;
+        }
 
-    cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
-}
+        cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+    }
 
     if (strcmp(argv[1], "swap") == 0 ) {
         int a=2;
@@ -261,12 +261,14 @@ int main (int argc, char* argv[]) {
 
     if (strcmp(argv[1], "sortRow") == 0 ) {
         int a[4];
-        a[0]=4;
-        a[1]=2;
-        a[2]=7;
-        a[3]=2;
-        sortRow(a, 4);
-        for (int i=0; i<4; ++i)
+        a[0]=2;
+        a[1]=5;
+        a[2]=6;
+        a[3]=7;
+        a[4]=2;
+        a[5]=4;
+        sortRow(a, 6);
+        for (int i=0; i<6; ++i)
             cout << a[i] << " ";
     }
 
@@ -287,10 +289,19 @@ int main (int argc, char* argv[]) {
             }
             cout << "Nastepna linia" << endl;
         }
-        int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
         for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j=0; j<ilosc_kolumn; ++j) {
+            for (int j = 0; j < ilosc_kolumn; ++j) {
+                cout << mac[i][j] << " ";
+            }
+            cout << endl;
+        }
+        cout << "koniec" << endl;
+
+        int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+
+        for (int i=0; i<ilosc_wierszy; i++) {
+            for (int j=0; j<ilosc_kolumn; j++) {
                 cout << macierz[i][j] << " ";
             }
             cout << endl;

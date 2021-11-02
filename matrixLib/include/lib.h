@@ -15,6 +15,7 @@ int **multiplyMatrix (int **mac_a, int **mac_b, int ilosc_wierszy_mac_a, int ilo
 int **multiplyByScalar (int **mac, int ilosc_wierszy, int ilosc_kolumn, int skalar);
 int **transpozeMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
 int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi);
+int determinantMatrixRec (int n, int w, int *WK, int ** A);
 int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn);
 void swap (int *a, int *b);

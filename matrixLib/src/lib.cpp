@@ -100,18 +100,35 @@ int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int 
     return mac_wynik;
 }
 
-int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
-    for (int i=1; i<ilosc_wierszy-1; ++i) {
-        for (int j=i+1; j<ilosc_wierszy; ++j) {
-            for (int k=i+1; k<ilosc_wierszy; ++k) {
-                mac[j][k] = mac[j][k] - mac[j][i]/mac[i][i]*mac[i][k];
-            }
+int determinantMatrixRec (int n, int w, int *WK, int ** A) {
+    int k,m, wynik, *KK;
+    if (n==1)
+        return A[w][WK[0]];
+    else {
+        KK= new int [n-1];
+        wynik=0;
+        m=1;
+        for (int i=0; i<n; ++i) {
+        k=0;
+
+        for (int j=0; j<n; ++j) {
+            if (k==i) k++;
+            KK [j] = WK [k++];
         }
+        wynik+=m*A[w][WK [i]] * determinantMatrixRec(n-1, w+1, KK, A);
+        m=-m;
+        }
+        delete [] KK;
+
+        return wynik;
     }
-    int det=1;
-    for (int i=1; i<ilosc_wierszy; ++i) {
-        det=det*mac[i][i];
-    }
+}
+
+int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    int  *WK = new int [ilosc_wierszy];
+    for (int i=0; i<ilosc_wierszy; ++i)
+        WK[i]=i;
+    int det = determinantMatrixRec(ilosc_wierszy, 0, WK, mac);
     return det;
 }
 
@@ -132,8 +149,8 @@ void swap (int *a, int *b) {
 }
 
 void sortRow (int *tab, int ilosc_kolumn) {
-    for (int i=0; i<ilosc_kolumn; ++i) {
-        for (int j=0; j<ilosc_kolumn-i; ++j) {
+    for (int i=0; i<ilosc_kolumn; i++) {
+        for (int j=0; j<ilosc_kolumn-i; j++) {
             if (tab[j]>tab[j+1])
                 swap(tab[j], tab[j+1]);
         }
@@ -141,8 +158,8 @@ void sortRow (int *tab, int ilosc_kolumn) {
 }
 
 int **sortRowsInMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
-    for (int i=0; i<ilosc_wierszy; ++i) {
-        sortRow(mac[i], ilosc_kolumn);
+    for (int i=0; i<ilosc_wierszy; i++) {
+        sortRow(mac[i], ilosc_kolumn-1);
     }
     return mac;
 }
