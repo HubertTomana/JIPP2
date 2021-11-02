@@ -22,7 +22,9 @@ double **transpozeMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
 int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi);
 double **powerMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi);
 int determinantMatrixRec (int n, int w, int *WK, int ** A);
+double determinantMatrixRec (int n, int w, int *WK, double ** A);
 int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
+double determinantMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn);
 bool matrixIsDiagonal(double **mac, int ilosc_wierszy, int ilosc_kolumn);
 void swap (int *a, int *b);
@@ -31,4 +33,5 @@ void sortRow (int *tab, int ilosc_kolumn);
 void sortRow (double *tab, int ilosc_kolumn);
 int **sortRowsInMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
 double **sortRowsInMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
+void help();
 #endif //JIPP2_LIB_H

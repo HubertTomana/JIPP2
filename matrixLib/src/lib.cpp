@@ -201,11 +201,43 @@ int determinantMatrixRec (int n, int w, int *WK, int ** A) {
     }
 }
 
+double determinantMatrixRec (int n, int w, int *WK, double ** A) {
+    int k,m, *KK;
+    double wynik;
+    if (n==1)
+        return A[w][WK[0]];
+    else {
+        KK= new int [n-1];
+        wynik=0;
+        m=1;
+        for (int i=0; i<n; ++i) {
+            k=0;
+            for (int j=0; j<n; ++j) {
+                if (k==i) k++;
+                KK [j] = WK [k++];
+            }
+            wynik+=m*A[w][WK [i]] * determinantMatrixRec(n-1, w+1, KK, A);
+            m=-m;
+        }
+        delete [] KK;
+
+        return wynik;
+    }
+}
+
 int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     int  *WK = new int [ilosc_wierszy];
     for (int i=0; i<ilosc_wierszy; ++i)
         WK[i]=i;
     int det = determinantMatrixRec(ilosc_wierszy, 0, WK, mac);
+    return det;
+}
+
+double determinantMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn) {
+    int  *WK = new int [ilosc_wierszy];
+    for (int i=0; i<ilosc_wierszy; ++i)
+        WK[i]=i;
+    double det = determinantMatrixRec(ilosc_wierszy, 0, WK, mac);
     return det;
 }
 
@@ -271,4 +303,17 @@ double **sortRowsInMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn) {
         sortRow(mac[i], ilosc_kolumn-1);
     }
     return mac;
+}
+
+void help () {
+    cout << "Program do wywolywania biblioteki MatrixLib\nHubert Tomana, gr.7, Informatyka\n"
+            "Zalozenia programu : Zakladamy, ze przekazujemy macierze, ktore sa poprawne dla danego obliczenia.\n"
+            "Program obsluguje 11 funkcji. Kazda z tych funkcji wywoluje sie poprzez podanie jej nazwy jako parametr podczas wywolywania aplikacji. Sa to :\n"
+            "*addMatrix -> Dodawanie macierzy\n*subtractMatrix -> Odejmowanie macierzy\n"
+            "*multiplyMatrix -> Mnozenie macierzy przez inna macierz\n*multiplyByScalar -> Mnozenie macierzy przez skalar\n"
+            "*transpozeMatrix -> Transponowanie macierzy\n*powerMatrix -> Potegowanie macierzy <- Ta funkcja przyjmuje rowniez jako drugi parametr stopien potegi\n"
+            "*determinantMatrix -> Obliczanie wyznacznika macierzy\n*matrixIsDiagonal -> Sprawdzanie, czy macierz jest diagonalna\n"
+            "*swap -> Zamiana dwoch wartosci miejscami\n*sortRow -> Sortowanie tablicy za pomoca sortowania babelkowego\n"
+            "*sortRowsInMatrix -> Sortowanie rosnaco wszystkich wierszy w macierzy sortowaniem babelkowym";
+
 }

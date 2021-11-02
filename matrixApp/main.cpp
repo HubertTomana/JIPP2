@@ -86,7 +86,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "subtractMatrix") == 0) {
+    else if (strcmp(argv[1], "subtractMatrix") == 0) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
@@ -166,7 +166,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "multiplyMatrix") == 0) {
+    else if (strcmp(argv[1], "multiplyMatrix") == 0) {
         int ilosc_wierszy_mac_a;
         int ilosc_kolumn_mac_a; //co stanowi tez ilosc wierszy macierzy B
         int ilosc_kolumn_mac_b;
@@ -251,7 +251,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "multiplyByScalar") == 0 ) {
+    else if (strcmp(argv[1], "multiplyByScalar") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
@@ -315,7 +315,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "transpozeMatrix") == 0 ) {
+    else if (strcmp(argv[1], "transpozeMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
@@ -373,10 +373,14 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "powerMatrix") == 0 ) {
+    else if (strcmp(argv[1], "powerMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
+        if (!argv[2]) {
+            cout << "Nie podano jako drugiego parametru stopnia potegi" << endl;
+            return 0;
+        }
         unsigned int potega = atoi(argv[2]);
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
@@ -432,28 +436,53 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "determinantMatrix") == 0 ) {
+    else if (strcmp(argv[1], "determinantMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
 
-        cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+        }
+        else if (wybor == 2) {
+            double **mac = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
+        }
     }
 
-    if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
+    else if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
@@ -499,7 +528,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "swap") == 0 ) {
+    else if (strcmp(argv[1], "swap") == 0 ) {
         double wybor=0;
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         cin >> wybor;
@@ -523,7 +552,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "sortRow") == 0 ) {
+    else if (strcmp(argv[1], "sortRow") == 0 ) {
         double wybor = 0;
         int dlugosc_tablicy;
         cout << "Podaj dlugosc tablicy" << endl;
@@ -532,12 +561,19 @@ int main (int argc, char* argv[]) {
         cin >> wybor;
         if (wybor == 1) {
             int *tab = new int (dlugosc_tablicy);
+            cout << "Podaj liczby do tablicy" << endl;
+            for (int i=0; i<dlugosc_tablicy; ++i) {
+                cin >> tab[i];
+            }
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
         }
         else if (wybor == 2) {
             double *tab = new double (dlugosc_tablicy);
+            for (int i=0; i<dlugosc_tablicy; ++i) {
+                cin >> tab[i];
+            }
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
@@ -548,7 +584,7 @@ int main (int argc, char* argv[]) {
         }
     }
 
-    if (strcmp(argv[1], "sortRowsInMatrix") == 0 ) {
+    else if (strcmp(argv[1], "sortRowsInMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor = 0;
@@ -604,6 +640,14 @@ int main (int argc, char* argv[]) {
             cout << "Podano niewlasciwa liczbe" << endl;
             return 0;
         }
+    }
+
+    else if (strcmp(argv[1], "help") == 0) {
+        help();
+
+    } else {
+        cout << "Niepoprawny wybor operacji" << endl;
+        help();
     }
 
     return 0;
