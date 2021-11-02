@@ -11,10 +11,25 @@ using namespace std;
 
 void zwalnianie_pamieci_int (int **tab, int ilosc_wierszy);
 void zwalnianie_pamieci_double (double **tab, int ilosc_wierszy);
+/*
+ * Funkcja addMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn.
+ * Zwraca ona tablice dwuwymariową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem dodawania tablic mac_a oraz mac_b
+ * Poprzez zastosowanie przeciążenia funkcji, funkcja addMatrix obsługuje zarówno wartości int, jak i double
+ */
 int **addMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 double **addMatrix (double **mac_a, double **mac_b, int ilosc_wierszy, int ilosc_kolumn);
+/*
+ * Funkcja subtractMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn.
+ * Zwraca ona tablice dwuwymariową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem odejmowania tablic mac_a oraz mac_b
+ * Poprzez zastosowanie przeciążenia funkcji, funkcja subtractMatrix obsługuje zarówno wartości int, jak i double
+ */
 int **subtractMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 double **subtractMatrix (double **mac_a, double **mac_b, int ilosc_wierszy, int ilosc_kolumn);
+/*
+ * Funkcja multiplyMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn mac_a oraz kolumn mac_b.
+ * Zwraca ona tablice dwuwymariową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem mnożenia tablic mac_a oraz mac_b
+ * Poprzez zastosowanie przeciążenia funkcji, funkcja multiplyMatrix obsługuje zarówno wartości int, jak i double
+ */
 int **multiplyMatrix (int **mac_a, int **mac_b, int ilosc_wierszy_mac_a, int ilosc_kolumn_mac_a, int ilosc_kolumn_mac_b);
 double **multiplyMatrix (double **mac_a, double **mac_b, int ilosc_wierszy_mac_a, int ilosc_kolumn_mac_a, int ilosc_kolumn_mac_b);
 int **multiplyByScalar (int **mac, int ilosc_wierszy, int ilosc_kolumn, int skalar);
