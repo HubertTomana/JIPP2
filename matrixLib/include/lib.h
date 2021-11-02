@@ -8,40 +8,42 @@
 #include <iostream>
 
 using namespace std;
-
+/*
+ * Funkcje zwalnianie_pamieci_int oraz zwalnianie_pamieci_double służą do zwalaniania pamieci dynamicznie zaalokowanych tablic dwumiarowych.
+ */
 void zwalnianie_pamieci_int (int **tab, int ilosc_wierszy);
 void zwalnianie_pamieci_double (double **tab, int ilosc_wierszy);
 /*
- * Funkcja addMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn.
- * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem dodawania tablic mac_a oraz mac_b
+ * Funkcja addMatrix przyjmuje jako argumenty tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn.
+ * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem dodawania macierzy mac_a oraz mac_b
  * Poprzez zastosowanie przeciążenia funkcji, funkcja addMatrix obsługuje zarówno wartości int, jak i double
  */
 int **addMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 double **addMatrix (double **mac_a, double **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 /*
  * Funkcja subtractMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn.
- * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem odejmowania tablic mac_a oraz mac_b
+ * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem odejmowania macierzy mac_a oraz mac_b
  * Poprzez zastosowanie przeciążenia funkcji, funkcja subtractMatrix obsługuje zarówno wartości int, jak i double
  */
 int **subtractMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 double **subtractMatrix (double **mac_a, double **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 /*
  * Funkcja multiplyMatrix przyjmuje jako argument tablice dwuwymiarowe mac_a oraz mac_b przekazywane jako podwojny wskaznik oraz ilosc wierszy oraz kolumn mac_a oraz kolumn mac_b.
- * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem mnożenia tablic mac_a oraz mac_b
+ * Zwraca ona tablice dwuwymiarową mac_wynik, przekazywanej jako podwojny wskaźnik, która jest wynikiem mnożenia macierzy mac_a oraz mac_b
  * Poprzez zastosowanie przeciążenia funkcji, funkcja multiplyMatrix obsługuje zarówno wartości int, jak i double
  */
 int **multiplyMatrix (int **mac_a, int **mac_b, int ilosc_wierszy_mac_a, int ilosc_kolumn_mac_a, int ilosc_kolumn_mac_b);
 double **multiplyMatrix (double **mac_a, double **mac_b, int ilosc_wierszy_mac_a, int ilosc_kolumn_mac_a, int ilosc_kolumn_mac_b);
 /*
  * Funkcja multiplyByScalar przyjmuje jako argument tablicę dwuwymiarową mac przekazywaną jako podwójny wskaznik, ilosc wierszy oraz kolumn mac oraz wartosc skalaru.
- * Zwraca ona tablice dwuwymiarową macierz, przekazywanej jako podwojny wskaźnik, która jest wynikiem mnożenia tablic mac przez skalar.
+ * Zwraca ona tablice dwuwymiarową macierz, przekazywanej jako podwojny wskaźnik, która jest wynikiem mnożenia macierzy mac przez skalar.
  * Poprzez zastosowanie przeciążenia funkcji, funkcja multiplyByScalar obsługuje zarówno wartości int, jak i double
  */
 int **multiplyByScalar (int **mac, int ilosc_wierszy, int ilosc_kolumn, int skalar);
 double **multiplyByScalar (double **mac, int ilosc_wierszy, int ilosc_kolumn, double skalar);
 /*
  * Funkcja transpozeMatrix przyjmuje jako argument tablicę dwuwymiarową mac przekazywaną jako podwójny wskaznik oraz ilosc wierszy oraz kolumn mac.
- * Zwraca ona tablice dwuwymiarową macierz, przekazywanej jako podwojny wskaźnik, która jest wynikiem transponowania tablicy mac.
+ * Zwraca ona tablice dwuwymiarową macierz, przekazywanej jako podwojny wskaźnik, która jest wynikiem transponowania macierzy mac.
  * Poprzez zastosowanie przeciążenia funkcji, funkcja transpozeMatrix obsługuje zarówno wartości int, jak i double
  */
 int **transpozeMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
@@ -55,7 +57,7 @@ double **transpozeMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
 int **powerMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi);
 double **powerMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn, unsigned int stopien_potegi);
 /*
- * Funkcja determinantMatrixRec jest funkcją rekurencyjną, która wylicza wyznacznik macierzy A poprzez zastsowania rozwinięcia Laplace'a
+ * Funkcja determinantMatrixRec jest funkcją rekurencyjną, która wylicza wyznacznik macierzy A poprzez zastosowanie rozwinięcia Laplace'a
  * Przyjmuje ona jako argumenty n- stopień podmacierzy, w - bieżący wiersz macierzy głównej, *WK - wektor kolumn o n elementach oraz **A - macierz podstawowa.
  * Poprzez zastosowanie przeciążenia funkcji, funkcja determinantMatrixRec obsługuje zarówno wartości int, jak i double
  */
@@ -70,7 +72,7 @@ int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn);
 double determinantMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
 /*
  * Funkcja matrixIsDiagonal przyjmuje jako argumenty tablicę dwuwymiarową mac przekazywaną jako podwójny wskaznik oraz ilosc wierszy oraz kolumn mac.
- * Zwraca ona wartość TRUE albo FALSE (bool, podczas wywolywania funkcji main 0= FALSE, 1 = TRUE) operacji badania, czy macierz mac jest diagonalna
+ * Zwraca ona wartość TRUE albo FALSE (bool, podczas wywolywania funkcji main 0 = FALSE, 1 = TRUE) operacji badania, czy macierz mac jest diagonalna
  * Poprzez zastosowanie przeciążenia funkcji, funkcja matrixIsDiagonal obsługuje zarówno wartości int, jak i double
  */
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn);
