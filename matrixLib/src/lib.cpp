@@ -306,14 +306,18 @@ double **sortRowsInMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn) {
 }
 
 void help () {
-    cout << "Program do wywolywania biblioteki MatrixLib\nHubert Tomana, gr.7, Informatyka\n"
-            "Zalozenia programu : Zakladamy, ze przekazujemy macierze, ktore sa poprawne dla danego obliczenia.\n"
-            "Program obsluguje 11 funkcji. Kazda z tych funkcji wywoluje sie poprzez podanie jej nazwy jako parametr podczas wywolywania aplikacji. Sa to :\n"
-            "*addMatrix -> Dodawanie macierzy\n*subtractMatrix -> Odejmowanie macierzy\n"
-            "*multiplyMatrix -> Mnozenie macierzy przez inna macierz\n*multiplyByScalar -> Mnozenie macierzy przez skalar\n"
-            "*transpozeMatrix -> Transponowanie macierzy\n*powerMatrix -> Potegowanie macierzy <- Ta funkcja przyjmuje rowniez jako drugi parametr stopien potegi\n"
-            "*determinantMatrix -> Obliczanie wyznacznika macierzy\n*matrixIsDiagonal -> Sprawdzanie, czy macierz jest diagonalna\n"
-            "*swap -> Zamiana dwoch wartosci miejscami\n*sortRow -> Sortowanie tablicy za pomoca sortowania babelkowego\n"
-            "*sortRowsInMatrix -> Sortowanie rosnaco wszystkich wierszy w macierzy sortowaniem babelkowym";
-
-}
+    cout << "\nProgram do wywolywania biblioteki MatrixLib\nHubert Tomana, gr.7, Informatyka\n\n"
+            "Zalozenia programu : Zakladamy, ze przekazujemy macierze, ktore sa poprawne dla danego obliczenia.\n\n"
+            "Program obsluguje 12 funkcji. Kazda z tych funkcji wywoluje sie poprzez podanie jej nazwy jako parametr podczas wywolywania aplikacji. Sa to :\n"
+            "*addMatrix -> Dodawanie macierzy.\n*subtractMatrix -> Odejmowanie macierzy.\n"
+            "*multiplyMatrix -> Mnozenie macierzy przez inna macierz.\n*multiplyByScalar -> Mnozenie macierzy przez skalar.\n"
+            "*transpozeMatrix -> Transponowanie macierzy.\n*powerMatrix -> Potegowanie macierzy <- Ta funkcja przyjmuje rowniez jako drugi parametr stopien potegi.\n"
+            "*determinantMatrix -> Obliczanie wyznacznika macierzy.\n*matrixIsDiagonal -> Sprawdzanie, czy macierz jest diagonalna.\n"
+            "*swap -> Zamiana dwoch wartosci miejscami.\n*sortRow -> Sortowanie tablicy za pomoca sortowania babelkowego.\n"
+            "*sortRowsInMatrix -> Sortowanie rosnaco wszystkich wierszy w macierzy sortowaniem babelkowym.\n"
+            "*help -> wyswietlenie dokumentacji\n\n"
+            "Podczas wywolywania funkcji nalezy wpisac do macierzy wartosci. Najpierw wczytywana jest liczba wierszy oraz kolumn.\n"
+            "Wpisywanie wartosci poprzedzone jest wyborem typu wartosci - int lub double, poprzez wpisanie odpowiadajacej cyfry : 1-int 2-double\n"
+            "Nastepnie wartosci sa wpisywane wierszami od lewej do prawej.\n"
+            "Stworzone macierze sa przekazywane jako podwojny wskaznik do danych funkcji, a wynik pracy funkcji zwracany jest poprzez referencje.\n"
+;}
