@@ -26,10 +26,27 @@ int main (int argc, char* argv[]) {
         int ilosc_wierszy;
         int ilosc_kolumn;
         double wybor=0;
-        cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cout << "Podaj liczbe wierszy i kolumn" << endl;
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (cin.fail()) {
+                throw 1;
+            }
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if(cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         if (wybor == 1) {
             int **mac_a = new int *[ilosc_wierszy];
             int **mac_b = new int *[ilosc_wierszy];
@@ -39,19 +56,35 @@ int main (int argc, char* argv[]) {
                 mac_b[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_a[i][j];
+                        if (cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_b[i][j];
+                        if (cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             int **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -74,19 +107,35 @@ int main (int argc, char* argv[]) {
                 mac_b[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_a[i][j];
+                        if (cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_b[i][j];
+                        if (cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             double **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -111,9 +160,25 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         if (wybor == 1) {
             int **mac_a = new int *[ilosc_wierszy];
             int **mac_b = new int *[ilosc_wierszy];
@@ -123,20 +188,37 @@ int main (int argc, char* argv[]) {
                 mac_b[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_a[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_b[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
 
             int **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
 
@@ -159,20 +241,38 @@ int main (int argc, char* argv[]) {
                 mac_b[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_a[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac_b[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
+
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
 
             double **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
 
@@ -198,9 +298,25 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn_mac_b;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn macierzy A i liczbe kolumn macierzy B" << endl;
-        cin >> ilosc_wierszy_mac_a >> ilosc_kolumn_mac_a >> ilosc_kolumn_mac_b;
+        try {
+            cin >> ilosc_wierszy_mac_a >> ilosc_kolumn_mac_a >> ilosc_kolumn_mac_b;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         if (wybor == 1) {
             int **mac_a = new int *[ilosc_wierszy_mac_a];
             for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
@@ -212,19 +328,35 @@ int main (int argc, char* argv[]) {
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-                for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                    for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
+                        cin >> mac_a[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
-                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                    for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                        cin >> mac_b[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             int **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
@@ -250,19 +382,35 @@ int main (int argc, char* argv[]) {
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-                for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
-                    cin >> mac_a[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                    for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
+                        cin >> mac_a[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
-                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
-                    cin >> mac_b[i][j];
+            try {
+                for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                    for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                        cin >> mac_b[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             double **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
@@ -288,9 +436,25 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
         if (wybor == 1) {
             int skalar;
             int **mac = new int *[ilosc_wierszy];
@@ -299,14 +463,32 @@ int main (int argc, char* argv[]) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
             cout << "Podaj skalar" << endl;
-            cin >> skalar;
+            try {
+                cin >> skalar;
+                if (!cin.fail())
+                    throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
             int **macierz = multiplyByScalar(mac, ilosc_wierszy, ilosc_kolumn, skalar);
 
             for (int i = 0; i < ilosc_wierszy; ++i) {
@@ -326,14 +508,33 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
+
             cout << "Podaj skalar" << endl;
-            cin >> skalar;
+            try {
+                cin >> skalar;
+                if (!cin.fail())
+                    throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
             double **macierz = multiplyByScalar(mac, ilosc_wierszy, ilosc_kolumn, skalar);
 
             for (int i = 0; i < ilosc_wierszy; ++i) {
@@ -356,9 +557,27 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int **mac = new int *[ilosc_wierszy];
 
@@ -366,12 +585,21 @@ int main (int argc, char* argv[]) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
             int **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
             for (int i = 0; i < ilosc_kolumn; ++i) {
@@ -390,12 +618,22 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
+
             double **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
             for (int i = 0; i < ilosc_kolumn; ++i) {
@@ -423,9 +661,29 @@ int main (int argc, char* argv[]) {
         }
         unsigned int potega = atoi(argv[2]);
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
+
         if (wybor == 1) {
             int **mac = new int *[ilosc_wierszy];
 
@@ -433,12 +691,22 @@ int main (int argc, char* argv[]) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
+
             int **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
 
             for (int i = 0; i < ilosc_wierszy; ++i) {
@@ -457,12 +725,21 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
             }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
             double **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
 
             for (int i = 0; i < ilosc_wierszy; ++i) {
@@ -485,9 +762,27 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int **mac = new int *[ilosc_wierszy];
 
@@ -495,11 +790,19 @@ int main (int argc, char* argv[]) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             cout << "Wyznacznik wynosi " << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
@@ -512,11 +815,19 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             cout << "Wyznacznik wynosi " << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
@@ -533,9 +844,27 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int **mac = new int *[ilosc_wierszy];
 
@@ -543,11 +872,19 @@ int main (int argc, char* argv[]) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
@@ -560,11 +897,19 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
@@ -579,18 +924,45 @@ int main (int argc, char* argv[]) {
     else if (strcmp(argv[1], "swap") == 0 ) {
         double wybor=0;
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int a,b;
             cout << "Podaj wartosci a i b" << endl;
-            cin >> a >> b;
+            try {
+                cin >> a >> b;
+                if (!cin.fail())
+                    throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
             swap(a, b);
             cout << a << " " << b << endl;
         }
         else if (wybor == 2) {
             double a, b;
             cout << "Podaj wartosci a i b" << endl;
-            cin >> a >> b;
+            try {
+                cin >> a >> b;
+                if (!cin.fail())
+                    throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
             swap(a, b);
             cout << a << " " << b << endl;
         }
@@ -604,15 +976,42 @@ int main (int argc, char* argv[]) {
         double wybor = 0;
         int dlugosc_tablicy;
         cout << "Podaj dlugosc tablicy" << endl;
-        cin >> dlugosc_tablicy;
+        try {
+            cin >> dlugosc_tablicy;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int *tab = new int (dlugosc_tablicy);
             cout << "Podaj liczby do tablicy" << endl;
-            for (int i=0; i<dlugosc_tablicy; ++i) {
-                cin >> tab[i];
+            try {
+                for (int i = 0; i < dlugosc_tablicy; ++i) {
+                    cin >> tab[i];
+                    if (!cin.fail())
+                        throw 1;
+                }
             }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
+            }
+
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
@@ -620,9 +1019,18 @@ int main (int argc, char* argv[]) {
         }
         else if (wybor == 2) {
             double *tab = new double (dlugosc_tablicy);
-            for (int i=0; i<dlugosc_tablicy; ++i) {
-                cin >> tab[i];
+            try {
+                for (int i = 0; i < dlugosc_tablicy; ++i) {
+                    cin >> tab[i];
+                    if (!cin.fail())
+                        throw 1;
+                }
             }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
+            }
+
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
@@ -639,20 +1047,46 @@ int main (int argc, char* argv[]) {
         int ilosc_kolumn;
         double wybor = 0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
-        cin >> ilosc_wierszy >> ilosc_kolumn;
+        try {
+            cin >> ilosc_wierszy >> ilosc_kolumn;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales int!!" << endl;
+            return 0;
+        }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
-        cin >> wybor;
+        try {
+            cin >> wybor;
+            if (!cin.fail())
+                throw 1;
+        }
+        catch (...) {
+            cout << "Nie wpisales double!!" << endl;
+            return 0;
+        }
+
         if (wybor == 1) {
             int **mac = new int *[ilosc_wierszy];
             for (int i = 0; i < ilosc_wierszy; ++i) {
                 mac[i] = new int[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!!" << endl;
+                return 0;
             }
 
             int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
@@ -672,11 +1106,19 @@ int main (int argc, char* argv[]) {
                 mac[i] = new double[ilosc_kolumn];
             }
             cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-            for (int i = 0; i < ilosc_wierszy; ++i) {
-                for (int j = 0; j < ilosc_kolumn; ++j) {
-                    cin >> mac[i][j];
+            try {
+                for (int i = 0; i < ilosc_wierszy; ++i) {
+                    for (int j = 0; j < ilosc_kolumn; ++j) {
+                        cin >> mac[i][j];
+                        if (!cin.fail())
+                            throw 1;
+                    }
+                    cout << "Wpisano caly wiersz" << endl;
                 }
-                cout << "Wpisano caly wiersz" << endl;
+            }
+            catch (...) {
+                cout << "Nie wpisales double!!" << endl;
+                return 0;
             }
 
             double **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
