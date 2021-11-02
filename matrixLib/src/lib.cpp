@@ -212,7 +212,7 @@ int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     for (int i=0; i<ilosc_wierszy; ++i) {
         for (int j=0; j<ilosc_kolumn; ++j) {
-            if (i!=j && mac[i][j]==0)
+            if (i!=j && mac[i][j]!=0)
                 return false;
         }
     }
@@ -222,7 +222,7 @@ bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn) {
 bool matrixIsDiagonal(double **mac, int ilosc_wierszy, int ilosc_kolumn) {
     for (int i=0; i<ilosc_wierszy; ++i) {
         for (int j=0; j<ilosc_kolumn; ++j) {
-            if (i!=j && mac[i][j]==0)
+            if (i!=j && mac[i][j]!=0)
                 return false;
         }
     }

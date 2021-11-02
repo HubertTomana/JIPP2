@@ -11,7 +11,7 @@ int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "addMatrix") == 0) {
         int ilosc_wierszy;
         int ilosc_kolumn;
-        int wybor=0;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
@@ -89,7 +89,7 @@ int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "subtractMatrix") == 0) {
         int ilosc_wierszy;
         int ilosc_kolumn;
-        int wybor;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
@@ -170,7 +170,7 @@ int main (int argc, char* argv[]) {
         int ilosc_wierszy_mac_a;
         int ilosc_kolumn_mac_a; //co stanowi tez ilosc wierszy macierzy B
         int ilosc_kolumn_mac_b;
-        int wybor;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn macierzy A i liczbe kolumn macierzy B" << endl;
         cin >> ilosc_wierszy_mac_a >> ilosc_kolumn_mac_a >> ilosc_kolumn_mac_b;
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
@@ -210,7 +210,7 @@ int main (int argc, char* argv[]) {
                 cout << endl;
             }
         }
-        if (wybor == 2) {
+        else if (wybor == 2) {
             double **mac_a = new double *[ilosc_wierszy_mac_a];
             for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
                 mac_a[i] = new double[ilosc_kolumn_mac_b];
@@ -254,85 +254,181 @@ int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "multiplyByScalar") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
-        int skalar;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int skalar;
+            int **mac = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-        cout << "Podaj skalar" << endl;
-        cin >> skalar;
-        int **macierz = multiplyByScalar(mac, ilosc_wierszy, ilosc_kolumn, skalar);
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            cout << "Podaj skalar" << endl;
+            cin >> skalar;
+            int **macierz = multiplyByScalar(mac, ilosc_wierszy, ilosc_kolumn, skalar);
 
-        for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j=0; j<ilosc_kolumn; ++j) {
-                cout << macierz[i][j] << " ";
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
             }
-            cout << endl;
+        }
+        else if (wybor == 2) {
+            double skalar;
+            double **mac = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            cout << "Podaj skalar" << endl;
+            cin >> skalar;
+            double **macierz = multiplyByScalar(mac, ilosc_wierszy, ilosc_kolumn, skalar);
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
     if (strcmp(argv[1], "transpozeMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-        int **macierz = transpozeMatrix(mac,ilosc_wierszy,ilosc_kolumn);
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            int **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
-        for (int i=0; i<ilosc_kolumn; ++i) {
-            for (int j=0; j<ilosc_wierszy; ++j) {
-                cout << macierz[i][j] << " ";
+            for (int i = 0; i < ilosc_kolumn; ++i) {
+                for (int j = 0; j < ilosc_wierszy; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
             }
-            cout << endl;
+        }
+        else if (wybor == 2) {
+            double **mac = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            double **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+
+            for (int i = 0; i < ilosc_kolumn; ++i) {
+                for (int j = 0; j < ilosc_wierszy; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
     if (strcmp(argv[1], "powerMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        double wybor=0;
         unsigned int potega = atoi(argv[2]);
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-        int **macierz = powerMatrix(mac,ilosc_wierszy,ilosc_kolumn,potega);
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            int **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
 
-        for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j=0; j<ilosc_kolumn; ++j) {
-                cout << macierz[i][j] << " ";
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
             }
-            cout << endl;
+        }
+        else if (wybor == 2) {
+            double **mac = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+            double **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
@@ -360,77 +456,153 @@ int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "matrixIsDiagonal") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        double wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
 
-        cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+            cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+        }
+        else if (wybor == 2) {
+            double **mac = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
+        }
     }
 
     if (strcmp(argv[1], "swap") == 0 ) {
-        int a=2;
-        int b=3;
-        swap(a,b);
-        cout << a << " " << b << endl;
+        double wybor=0;
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int a,b;
+            cout << "Podaj wartosci a i b" << endl;
+            cin >> a >> b;
+            swap(a, b);
+            cout << a << " " << b << endl;
+        }
+        else if (wybor == 2) {
+            double a, b;
+            cout << "Podaj wartosci a i b" << endl;
+            cin >> a >> b;
+            swap(a, b);
+            cout << a << " " << b << endl;
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
+        }
     }
 
     if (strcmp(argv[1], "sortRow") == 0 ) {
-        int a[4];
-        a[0]=2;
-        a[1]=5;
-        a[2]=6;
-        a[3]=7;
-        a[4]=2;
-        a[5]=4;
-        sortRow(a, 6);
-        for (int i=0; i<6; ++i)
-            cout << a[i] << " ";
+        double wybor = 0;
+        int dlugosc_tablicy;
+        cout << "Podaj dlugosc tablicy" << endl;
+        cin >> dlugosc_tablicy;
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int *tab = new int (dlugosc_tablicy);
+            sortRow(tab, dlugosc_tablicy);
+            for (int i = 0; i < dlugosc_tablicy; ++i)
+                cout << tab[i] << " ";
+        }
+        else if (wybor == 2) {
+            double *tab = new double (dlugosc_tablicy);
+            sortRow(tab, dlugosc_tablicy);
+            for (int i = 0; i < dlugosc_tablicy; ++i)
+                cout << tab[i] << " ";
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
+        }
     }
 
     if (strcmp(argv[1], "sortRowsInMatrix") == 0 ) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        double wybor = 0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac = new int *[ilosc_wierszy];
-
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac[i][j];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac = new int *[ilosc_wierszy];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-
-        for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cout << mac[i][j] << " ";
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << endl;
-        }
-        cout << "koniec" << endl;
 
-        int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
-        for (int i=0; i<ilosc_wierszy; i++) {
-            for (int j=0; j<ilosc_kolumn; j++) {
-                cout << macierz[i][j] << " ";
+            for (int i = 0; i < ilosc_wierszy; i++) {
+                for (int j = 0; j < ilosc_kolumn; j++) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
             }
-            cout << endl;
+        }
+        else if (wybor == 2) {
+            double **mac = new double *[ilosc_wierszy];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            double **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+
+            for (int i = 0; i < ilosc_wierszy; i++) {
+                for (int j = 0; j < ilosc_kolumn; j++) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
