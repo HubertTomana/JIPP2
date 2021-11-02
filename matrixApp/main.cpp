@@ -169,6 +169,7 @@ int main (int argc, char* argv[]) {
             cout << "Nie wpisales int!!" << endl;
             return 0;
         }
+
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
