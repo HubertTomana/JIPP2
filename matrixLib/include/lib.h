@@ -9,7 +9,7 @@
 
 using namespace std;
 /*
- * Funkcje zwalnianie_pamieci_int oraz zwalnianie_pamieci_double służą do zwalaniania pamieci dynamicznie zaalokowanych tablic dwumiarowych.
+ * Funkcje zwalnianie_pamieci_int oraz zwalnianie_pamieci_double służą do zwalaniania pamieci dynamicznie zaalokowanych tablic dwuwymiarowych.
  */
 void zwalnianie_pamieci_int (int **tab, int ilosc_wierszy);
 void zwalnianie_pamieci_double (double **tab, int ilosc_wierszy);
