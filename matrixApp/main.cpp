@@ -43,7 +43,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -51,7 +51,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             int **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -78,7 +78,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -86,7 +86,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             double **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -127,7 +127,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -135,7 +135,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             int **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -163,7 +163,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -171,7 +171,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             double **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
@@ -204,7 +204,7 @@ int main (int argc, char* argv[]) {
         if (wybor == 1) {
             int **mac_a = new int *[ilosc_wierszy_mac_a];
             for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-                mac_a[i] = new int[ilosc_kolumn_mac_b];
+                mac_a[i] = new int[ilosc_kolumn_mac_a];
             }
             int **mac_b = new int *[ilosc_kolumn_mac_a];
             for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
@@ -216,7 +216,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -224,7 +224,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             int **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
@@ -242,7 +242,7 @@ int main (int argc, char* argv[]) {
         else if (wybor == 2) {
             double **mac_a = new double *[ilosc_wierszy_mac_a];
             for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-                mac_a[i] = new double[ilosc_kolumn_mac_b];
+                mac_a[i] = new double[ilosc_kolumn_mac_a];
             }
             double **mac_b = new double *[ilosc_kolumn_mac_a];
             for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
@@ -254,7 +254,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
                     cin >> mac_a[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
@@ -262,7 +262,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
                     cin >> mac_b[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             double **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
@@ -303,7 +303,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             cout << "Podaj skalar" << endl;
             cin >> skalar;
@@ -330,7 +330,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             cout << "Podaj skalar" << endl;
             cin >> skalar;
@@ -370,7 +370,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             int **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
@@ -394,7 +394,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             double **macierz = transpozeMatrix(mac, ilosc_wierszy, ilosc_kolumn);
 
@@ -437,7 +437,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             int **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
 
@@ -461,7 +461,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
             double **macierz = powerMatrix(mac, ilosc_wierszy, ilosc_kolumn, potega);
 
@@ -499,10 +499,10 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
-            cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            cout << "Wyznacznik wynosi " << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
             zwalnianie_pamieci_int(mac, ilosc_wierszy);
         }
         else if (wybor == 2) {
@@ -516,10 +516,10 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
-            cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            cout << "Wyznacznik wynosi " << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
             zwalnianie_pamieci_double(mac, ilosc_wierszy);
         }
         else {
@@ -547,7 +547,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
@@ -564,7 +564,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
@@ -652,7 +652,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             int **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
@@ -676,7 +676,7 @@ int main (int argc, char* argv[]) {
                 for (int j = 0; j < ilosc_kolumn; ++j) {
                     cin >> mac[i][j];
                 }
-                cout << "Nastepna linia" << endl;
+                cout << "Wpisano caly wiersz" << endl;
             }
 
             double **macierz = sortRowsInMatrix(mac, ilosc_wierszy, ilosc_kolumn);
@@ -699,7 +699,9 @@ int main (int argc, char* argv[]) {
     else if (strcmp(argv[1], "help") == 0) {
         help();
 
-    } else {
+    }
+
+    else {
         cout << "Niepoprawny wybor operacji" << endl;
         help();
     }
