@@ -3,7 +3,6 @@
 //
 #include "lib.h"
 
-
 int **addMatrix (int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn) {
     int **mac_wynik = new int *[ilosc_wierszy];
     for (int i=0; i<ilosc_wierszy; ++i) {
@@ -230,6 +229,7 @@ int determinantMatrix (int **mac, int ilosc_wierszy, int ilosc_kolumn) {
     for (int i=0; i<ilosc_wierszy; ++i)
         WK[i]=i;
     int det = determinantMatrixRec(ilosc_wierszy, 0, WK, mac);
+    delete [] WK;
     return det;
 }
 
@@ -238,6 +238,7 @@ double determinantMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn) {
     for (int i=0; i<ilosc_wierszy; ++i)
         WK[i]=i;
     double det = determinantMatrixRec(ilosc_wierszy, 0, WK, mac);
+    delete [] WK;
     return det;
 }
 

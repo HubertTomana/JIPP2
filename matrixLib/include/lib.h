@@ -9,6 +9,8 @@
 
 using namespace std;
 
+void zwalnianie_pamieci_int (int **tab, int ilosc_wierszy);
+void zwalnianie_pamieci_double (double **tab, int ilosc_wierszy);
 int **addMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 double **addMatrix (double **mac_a, double **mac_b, int ilosc_wierszy, int ilosc_kolumn);
 int **subtractMatrix(int **mac_a, int **mac_b, int ilosc_wierszy, int ilosc_kolumn);

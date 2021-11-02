@@ -7,6 +7,20 @@
 
 using namespace std;
 
+void zwalnianie_pamieci_int (int **tab, int ilosc_wierszy) {
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        delete [] tab[i];
+    }
+    delete [] tab;
+}
+
+void zwalnianie_pamieci_double (double **tab, int ilosc_wierszy) {
+    for (int i=0; i<ilosc_wierszy; ++i) {
+        delete [] tab[i];
+    }
+    delete [] tab;
+}
+
 int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "addMatrix") == 0) {
         int ilosc_wierszy;
@@ -47,6 +61,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac_a, ilosc_wierszy);
+            zwalnianie_pamieci_int(mac_b, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac_a = new double *[ilosc_wierszy];
@@ -79,6 +96,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac_a, ilosc_wierszy);
+            zwalnianie_pamieci_double(mac_b, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -126,6 +146,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac_a, ilosc_wierszy);
+            zwalnianie_pamieci_int(mac_b, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac_a = new double *[ilosc_wierszy];
@@ -159,6 +182,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac_a, ilosc_wierszy);
+            zwalnianie_pamieci_double(mac_b, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -209,6 +235,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac_a, ilosc_wierszy_mac_a);
+            zwalnianie_pamieci_int(mac_b, ilosc_kolumn_mac_a);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy_mac_a);
         }
         else if (wybor == 2) {
             double **mac_a = new double *[ilosc_wierszy_mac_a];
@@ -244,6 +273,9 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac_a, ilosc_wierszy_mac_a);
+            zwalnianie_pamieci_double(mac_b, ilosc_kolumn_mac_a);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy_mac_a);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -283,6 +315,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double skalar;
@@ -308,6 +342,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -344,6 +380,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac = new double *[ilosc_wierszy];
@@ -366,6 +404,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -407,6 +447,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac = new double *[ilosc_wierszy];
@@ -429,6 +471,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -459,6 +503,7 @@ int main (int argc, char* argv[]) {
             }
 
             cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac = new double *[ilosc_wierszy];
@@ -475,6 +520,7 @@ int main (int argc, char* argv[]) {
             }
 
             cout << determinantMatrix(mac, ilosc_wierszy, ilosc_kolumn);
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -505,6 +551,7 @@ int main (int argc, char* argv[]) {
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac = new double *[ilosc_wierszy];
@@ -521,6 +568,7 @@ int main (int argc, char* argv[]) {
             }
 
             cout << matrixIsDiagonal(mac, ilosc_wierszy, ilosc_kolumn) << endl;
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -568,6 +616,7 @@ int main (int argc, char* argv[]) {
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
+            delete [] tab;
         }
         else if (wybor == 2) {
             double *tab = new double (dlugosc_tablicy);
@@ -577,6 +626,7 @@ int main (int argc, char* argv[]) {
             sortRow(tab, dlugosc_tablicy);
             for (int i = 0; i < dlugosc_tablicy; ++i)
                 cout << tab[i] << " ";
+            delete [] tab;
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
@@ -613,6 +663,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_int(mac, ilosc_wierszy);
+            zwalnianie_pamieci_int(macierz, ilosc_wierszy);
         }
         else if (wybor == 2) {
             double **mac = new double *[ilosc_wierszy];
@@ -635,6 +687,8 @@ int main (int argc, char* argv[]) {
                 }
                 cout << endl;
             }
+            zwalnianie_pamieci_double(mac, ilosc_wierszy);
+            zwalnianie_pamieci_double(macierz, ilosc_wierszy);
         }
         else {
             cout << "Podano niewlasciwa liczbe" << endl;
