@@ -162,7 +162,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -172,7 +172,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -192,7 +192,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac_a[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -208,7 +208,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac_b[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -245,7 +245,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac_a[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -261,7 +261,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac_b[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -300,7 +300,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn macierzy A i liczbe kolumn macierzy B" << endl;
         try {
             cin >> ilosc_wierszy_mac_a >> ilosc_kolumn_mac_a >> ilosc_kolumn_mac_b;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -310,7 +310,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -332,7 +332,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
                     for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
                         cin >> mac_a[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -348,7 +348,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
                     for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
                         cin >> mac_b[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -386,7 +386,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
                     for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
                         cin >> mac_a[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -402,7 +402,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
                     for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
                         cin >> mac_b[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -438,7 +438,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -448,7 +448,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -467,7 +467,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -481,7 +481,7 @@ int main (int argc, char* argv[]) {
             cout << "Podaj skalar" << endl;
             try {
                 cin >> skalar;
-                if (!cin.fail())
+                if (cin.fail())
                     throw 1;
             }
             catch (...) {
@@ -512,7 +512,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -527,7 +527,7 @@ int main (int argc, char* argv[]) {
             cout << "Podaj skalar" << endl;
             try {
                 cin >> skalar;
-                if (!cin.fail())
+                if (cin.fail())
                     throw 1;
             }
             catch (...) {
@@ -559,7 +559,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -570,7 +570,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -589,7 +589,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -622,7 +622,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -663,7 +663,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -675,7 +675,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -695,7 +695,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -729,7 +729,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -764,7 +764,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -775,7 +775,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -794,7 +794,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -819,7 +819,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -846,7 +846,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -857,7 +857,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -876,7 +876,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -901,7 +901,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -926,7 +926,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -939,7 +939,7 @@ int main (int argc, char* argv[]) {
             cout << "Podaj wartosci a i b" << endl;
             try {
                 cin >> a >> b;
-                if (!cin.fail())
+                if (cin.fail())
                     throw 1;
             }
             catch (...) {
@@ -955,7 +955,7 @@ int main (int argc, char* argv[]) {
             cout << "Podaj wartosci a i b" << endl;
             try {
                 cin >> a >> b;
-                if (!cin.fail())
+                if (cin.fail())
                     throw 1;
             }
             catch (...) {
@@ -978,7 +978,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj dlugosc tablicy" << endl;
         try {
             cin >> dlugosc_tablicy;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -989,7 +989,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -1003,7 +1003,7 @@ int main (int argc, char* argv[]) {
             try {
                 for (int i = 0; i < dlugosc_tablicy; ++i) {
                     cin >> tab[i];
-                    if (!cin.fail())
+                    if (cin.fail())
                         throw 1;
                 }
             }
@@ -1022,7 +1022,7 @@ int main (int argc, char* argv[]) {
             try {
                 for (int i = 0; i < dlugosc_tablicy; ++i) {
                     cin >> tab[i];
-                    if (!cin.fail())
+                    if (cin.fail())
                         throw 1;
                 }
             }
@@ -1049,7 +1049,7 @@ int main (int argc, char* argv[]) {
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         try {
             cin >> ilosc_wierszy >> ilosc_kolumn;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -1060,7 +1060,7 @@ int main (int argc, char* argv[]) {
         cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
         try {
             cin >> wybor;
-            if (!cin.fail())
+            if (cin.fail())
                 throw 1;
         }
         catch (...) {
@@ -1078,7 +1078,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
@@ -1110,7 +1110,7 @@ int main (int argc, char* argv[]) {
                 for (int i = 0; i < ilosc_wierszy; ++i) {
                     for (int j = 0; j < ilosc_kolumn; ++j) {
                         cin >> mac[i][j];
-                        if (!cin.fail())
+                        if (cin.fail())
                             throw 1;
                     }
                     cout << "Wpisano caly wiersz" << endl;
