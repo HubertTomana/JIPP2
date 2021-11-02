@@ -11,76 +11,158 @@ int main (int argc, char* argv[]) {
     if (strcmp(argv[1], "addMatrix") == 0) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        int wybor=0;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac_a = new int *[ilosc_wierszy];
-        int **mac_b = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac_a = new int *[ilosc_wierszy];
+            int **mac_b = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac_a[i] = new int[ilosc_kolumn];
-            mac_b[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac_a[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac_a[i] = new int[ilosc_kolumn];
+                mac_b[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-
-        cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac_b[i][j];
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << "Nastepna linia" << endl;
-        }
 
-        int **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
-
-        for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j=0; j<ilosc_kolumn; ++j) {
-                cout << macierz[i][j] << " ";
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << endl;
+
+            int **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else if (wybor == 2) {
+            double **mac_a = new double *[ilosc_wierszy];
+            double **mac_b = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac_a[i] = new double[ilosc_kolumn];
+                mac_b[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            double **macierz = addMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
     if (strcmp(argv[1], "subtractMatrix") == 0) {
         int ilosc_wierszy;
         int ilosc_kolumn;
+        int wybor;
         cout << "Podaj liczbe wierszy i kolumn" << endl;
         cin >> ilosc_wierszy >> ilosc_kolumn;
-        int **mac_a = new int *[ilosc_wierszy];
-        int **mac_b = new int *[ilosc_wierszy];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac_a = new int *[ilosc_wierszy];
+            int **mac_b = new int *[ilosc_wierszy];
 
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            mac_a[i] = new int[ilosc_kolumn];
-            mac_b[i] = new int[ilosc_kolumn];
-        }
-        cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac_a[i][j];
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac_a[i] = new int[ilosc_kolumn];
+                mac_b[i] = new int[ilosc_kolumn];
             }
-            cout << "Nastepna linia" << endl;
-        }
-
-        cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-        for (int i = 0; i < ilosc_wierszy; ++i) {
-            for (int j = 0; j < ilosc_kolumn; ++j) {
-                cin >> mac_b[i][j];
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << "Nastepna linia" << endl;
-        }
 
-        int **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
-
-        for (int i=0; i<ilosc_wierszy; ++i) {
-            for (int j=0; j<ilosc_kolumn; ++j) {
-                cout << macierz[i][j] << " ";
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << endl;
+
+            int **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else if (wybor == 2) {
+            double **mac_a = new double *[ilosc_wierszy];
+            double **mac_b = new double *[ilosc_wierszy];
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                mac_a[i] = new double[ilosc_kolumn];
+                mac_b[i] = new double[ilosc_kolumn];
+            }
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            double **macierz = subtractMatrix(mac_a, mac_b, ilosc_wierszy, ilosc_kolumn);
+
+            for (int i = 0; i < ilosc_wierszy; ++i) {
+                for (int j = 0; j < ilosc_kolumn; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
@@ -88,40 +170,84 @@ int main (int argc, char* argv[]) {
         int ilosc_wierszy_mac_a;
         int ilosc_kolumn_mac_a; //co stanowi tez ilosc wierszy macierzy B
         int ilosc_kolumn_mac_b;
+        int wybor;
         cout << "Podaj liczbe wierszy i kolumn macierzy A i liczbe kolumn macierzy B" << endl;
         cin >> ilosc_wierszy_mac_a >> ilosc_kolumn_mac_a >> ilosc_kolumn_mac_b;
-        int **mac_a = new int *[ilosc_wierszy_mac_a];
-        for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-            mac_a[i] = new int[ilosc_kolumn_mac_b];
-        }
-        int **mac_b = new int *[ilosc_kolumn_mac_a];
-        for (int i=0; i<ilosc_kolumn_mac_a; ++i) {
-            mac_b[i] = new int[ilosc_kolumn_mac_b];
-        }
-
-        cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
-        for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
-            for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
-                cin >> mac_a[i][j];
+        cout << "Wpisz 1, jesli wpisujesz liczby calkowite, a 2, gdy zmiennoprzecinkowe" << endl;
+        cin >> wybor;
+        if (wybor == 1) {
+            int **mac_a = new int *[ilosc_wierszy_mac_a];
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                mac_a[i] = new int[ilosc_kolumn_mac_b];
             }
-            cout << "Nastepna linia" << endl;
-        }
-
-        cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
-        for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
-            for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
-                cin >> mac_b[i][j];
+            int **mac_b = new int *[ilosc_kolumn_mac_a];
+            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                mac_b[i] = new int[ilosc_kolumn_mac_b];
             }
-            cout << "Nastepna linia" << endl;
-        }
 
-        int **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
-
-        for (int i=0; i<ilosc_wierszy_mac_a; ++i) {
-            for (int j=0; j<ilosc_kolumn_mac_b; ++j) {
-                cout << macierz[i][j] << " ";
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
             }
-            cout << endl;
+
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            int **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
+
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        if (wybor == 2) {
+            double **mac_a = new double *[ilosc_wierszy_mac_a];
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                mac_a[i] = new double[ilosc_kolumn_mac_b];
+            }
+            double **mac_b = new double *[ilosc_kolumn_mac_a];
+            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                mac_b[i] = new double[ilosc_kolumn_mac_b];
+            }
+
+            cout << "Bedziemy podawac teraz wartosci do macierzy a" << endl;
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_a; ++j) {
+                    cin >> mac_a[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            cout << "Bedziemy podawac teraz wartosci do macierzy b" << endl;
+            for (int i = 0; i < ilosc_kolumn_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                    cin >> mac_b[i][j];
+                }
+                cout << "Nastepna linia" << endl;
+            }
+
+            double **macierz = multiplyMatrix(mac_a, mac_b, ilosc_wierszy_mac_a, ilosc_kolumn_mac_a, ilosc_kolumn_mac_b);
+
+            for (int i = 0; i < ilosc_wierszy_mac_a; ++i) {
+                for (int j = 0; j < ilosc_kolumn_mac_b; ++j) {
+                    cout << macierz[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+        else {
+            cout << "Podano niewlasciwa liczbe" << endl;
+            return 0;
         }
     }
 
