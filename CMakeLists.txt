@@ -17,3 +17,5 @@ add_subdirectory(Zadanko_klasy)
 add_subdirectory(matrixLib)
 
 add_subdirectory(matrixApp)
+
+add_subdirectory(Zadanie2911)
