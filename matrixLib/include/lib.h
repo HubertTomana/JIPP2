@@ -73,7 +73,7 @@ double determinantMatrix (double **mac, int ilosc_wierszy, int ilosc_kolumn);
 /*
  * Funkcja matrixIsDiagonal przyjmuje jako argumenty tablicę dwuwymiarową mac przekazywaną jako podwójny wskaznik oraz ilosc wierszy oraz kolumn mac.
  * Zwraca ona wartość TRUE albo FALSE (bool, podczas wywolywania funkcji main 0 = FALSE, 1 = TRUE) operacji badania, czy macierz mac jest diagonalna
- * Poprzez zastosowanie przeciążenia funkcji, funkcja matriaxIsDiagonal obsługuje zarówno wartości int, jak i double
+ * Poprzez zastosowanie przeciążenia funkcji, funkcja matrixIsDiagonal obsługuje zarówno wartości int, jak i double
  */
 bool matrixIsDiagonal(int **mac, int ilosc_wierszy, int ilosc_kolumn);
 bool matrixIsDiagonal(double **mac, int ilosc_wierszy, int ilosc_kolumn);
