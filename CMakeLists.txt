@@ -19,3 +19,5 @@ add_subdirectory(matrixLib)
 add_subdirectory(matrixApp)
 
 add_subdirectory(Zadanie2911)
+
+add_subdirectory(Projekt2)
