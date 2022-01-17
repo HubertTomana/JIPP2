@@ -23,3 +23,5 @@ add_subdirectory(Zadanie2911)
 add_subdirectory(Projekt2)
 
 add_subdirectory(jipp1001)
+
+add_subdirectory(zadanie1701)
