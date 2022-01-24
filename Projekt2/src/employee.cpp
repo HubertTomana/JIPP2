@@ -11,6 +11,11 @@ void Employee::printAll() {
     cout << "Zarobki : " << salary << endl << "Rola : " << role << endl;
     cout << "Team : " << team << endl << "Pokoj : " << room_number << endl;
 }
+string Employee::tofile() {
+    return ( "Imie : " + name + "\nNazwisko : " + surname + "\nWiek : " + to_string(age) +
+             "\nZarobki : " + to_string(salary) + "\nRola : " + role +
+             "\nTeam : " + team + "\nRoom_Number : " + to_string(room_number) + "\n\n" );
+}
 
 void Employee::setTeam(const string team) {
     this->team = team;

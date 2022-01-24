@@ -14,6 +14,7 @@ private :
 public:
     Employee(const string &name, const string &surname, int age);
     void printAll();
+    string tofile();
     void setTeam(const string team);
 
 };

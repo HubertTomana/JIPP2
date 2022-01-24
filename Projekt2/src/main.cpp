@@ -7,10 +7,16 @@
 #include "employer.h"
 #include "Register.h"
 
+#include <fstream>
+#include <string>
+
+void write(string file, int max);
+
 int main() {
     vector<Employer> employerVector;
     vector<Employee> employeeVector;
-    int wybor;
+    int choice=0;
+    int in_choice;
     int employer_number = 0;
     int employee_number = 0;
     string tmp_string;
@@ -18,14 +24,16 @@ int main() {
     string surname;
     int age;
 
-    while (wybor!=5) {
+    while (choice != 5) {
         cout << "Wpisz 1, jesli chcesz dodac osobe" << endl;
+        cout << "Wpisz 2, jesli chcesz pokazac dana osobe" << endl;
+        cout << "Wpisz 3, jesli chcesz zapisac dane do bazy danych" << endl;
         cout << "Wpisz 5, jesli chcesz zakonczyc program" << endl;
-        cin >> wybor;
-        if (wybor == 1) {
+        cin >> choice;
+        if (choice == 1) {
             cout << "Jesli chcesz dodac szefa, wpisz 1, jesli pracownika, wpisz 2" << endl;
-            cin >> wybor;
-            if (wybor == 1) {
+            cin >> in_choice;
+            if (in_choice == 1) {
                 cout << "Podaj imie : ";
                 cin >> name;
                 cout << "Podaj nazwisko : ";
@@ -33,22 +41,12 @@ int main() {
                 cout << "Podaj wiek : ";
                 cin >> age;
                 employerVector.push_back(Employer(name, surname, age));
-                cout << "Do ktorego zespolu chcesz przypisac dana osobe?" << endl;
+                cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe : ";
                 cin >> tmp_string;
                 employerVector.at(employer_number).set_head_of_team(tmp_string);
                 employerVector.at(employer_number).printAll();
                 employer_number++;
-                cout << "Ktora pozycje chcesz pokazac?" << endl;
-                int ktory;
-                cin >> ktory;
-                if (ktory<employerVector.size()) {
-                    employerVector.at(ktory).printAll();
-                }
-                else {
-                    cout << "Niewlasciwy element" << endl;
-                }
-
-            } else if (wybor == 2) {
+            } else if (in_choice == 2) {
                 cout << "Podaj imie : ";
                 cin >> name;
                 cout << "Podaj nazwisko : ";
@@ -56,24 +54,79 @@ int main() {
                 cout << "Podaj wiek : ";
                 cin >> age;
                 employeeVector.push_back(Employee(name, surname, age));
-                cout << "Do ktorego zespolu chcesz przypisac dana osobe?" << endl;
+                cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe";
                 cin >> tmp_string;
                 employerVector.at(employee_number).set_head_of_team(tmp_string);
                 employerVector.at(employee_number).printAll();
                 employee_number++;
-                cout << "Ktora pozycje chcesz pokazac?" << endl;
-                int ktory;
-                cin >> ktory;
-                if (ktory<employeeVector.size()) {
-                    employeeVector.at(ktory).printAll();
-                }
-                else {
-                    cout << "Niewlasciwy element" << endl;
-                }
             } else {
                 cout << "Wybrano niewlasciwa opcje" << endl;
             }
         }
+        if (choice == 2) {
+            cout << "Wpisz 1, jesli chcesz wybrac Szefa, a 2, jesli pracownika" << endl;
+            cin >> in_choice;
+            if (in_choice == 1) {
+                cout << "Ktora pozycje chcesz pokazac?" << endl;
+                int which;
+                cin >> which;
+                if (which < employerVector.size()) {
+                    employerVector.at(which).printAll();
+                }
+                else {
+                    cout << "Niewlasciwy element" << endl;
+                }
+            }
+            else if (in_choice == 2) {
+                cout << "Ktora pozycje chcesz pokazac?" << endl;
+                int which;
+                cin >> which;
+                if (which < employeeVector.size()) {
+                    employeeVector.at(which).printAll();
+                }
+                else {
+                    cout << "Niewlasciwy element" << endl;
+                }
+            }
+        }
+        else if (choice == 3) {
+            ofstream output("employers.txt");
+            if(output.is_open()) {
+                for(vector<Employer>::iterator i = employerVector.begin(); i<employerVector.end(); i++) {
+                    output << i->tofile();
+                }
+                output.close();
+            } else {
+                cout << "Error on opening file" << endl;
+                exit(1);
+            }
+
+            ofstream output2("employees.txt");
+            if(output2.is_open()) {
+                for(vector<Employee>::iterator i = employeeVector.begin(); i<employeeVector.end(); i++) {
+                    output2 << i->tofile();
+                }
+                output2.close();
+            } else {
+                cout << "Error on opening file" << endl;
+                exit(1);
+            }
+
+        }
     }
     return 0;
+}
+
+
+void write(vector<Employee> employee) {
+    ofstream output("employees.txt");
+    if(output.is_open()) {
+        for(vector<Employee>::iterator i = employee.begin(); i<employee.end(); i++) {
+            output << i->tofile();
+        }
+        output.close();
+    } else {
+        cout << "Error on opening file" << endl;
+        exit(1);
+    }
 }

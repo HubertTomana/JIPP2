@@ -12,6 +12,12 @@ void Employer::printAll() {
     cout << "Head of team : " << head_of_team << endl;
 }
 
+string Employer::tofile() {
+    return ( "Imie : " + name + "\nNazwisko : " + surname + "\nWiek : " + to_string(age) +
+            "\nZarobki : " + to_string(salary) + "\nRola : " + role +
+         "\nHead of team : " + head_of_team + "\n\n");
+    }
+
 void Employer::set_head_of_team(const string head_of_team) {
     this->head_of_team=head_of_team;
 }
