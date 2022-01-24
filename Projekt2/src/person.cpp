@@ -4,8 +4,4 @@
 
 #include "person.h"
 
-void Person::print() {
-    cout << "Imie : " << name << endl << "Nazwisko : " << surname  << endl << "Wiek : " << age << endl << "Zarobki : " << payment << endl << "Rola : " << rola << endl;
-}
-
-Person::Person(const string &name, const string &surname, int age) : name(name), surname(surname), age(age) {}
+Person::Person(const string &name, const string &surname, int age, int salary, const string &role) : name(name), surname(surname), age(age), salary(salary), role(role) {}

@@ -14,12 +14,12 @@ protected:
     string name;
     string surname;
     int age;
-    int payment = 0;
-    string rola = "Brak";
+    int salary = 0;
+    string role = "Brak";
 public:
-    void print();
+    //virtual void printAll();
     //virtual void print_all();
-    Person (const string &name, const string &surname, int age);
+    Person (const string &name, const string &salary, int age, int payment, const string &role);
 };
 
 

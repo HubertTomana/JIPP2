@@ -9,11 +9,12 @@
 
 class Employee : public Person {
 private :
-    string team;
-    int room_number;
+    string team = "Brak";
+    int room_number = 0;
 public:
     Employee(const string &name, const string &surname, int age);
     void printAll();
+    void setTeam(const string team);
 
 };
 

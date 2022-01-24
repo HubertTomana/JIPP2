@@ -3,3 +3,15 @@
 //
 
 #include "employer.h"
+
+Employer::Employer(const string &name, const string &surname, int age) : Person(name, surname, age, 5000, "Employer") {}
+
+void Employer::printAll() {
+    cout << "Imie : " << name << endl << "Nazwisko : " << surname  << endl << "Wiek : " << age << endl;
+    cout << "Zarobki : " << salary << endl << "Rola : " << role << endl;
+    cout << "Head of team : " << head_of_team << endl;
+}
+
+void Employer::set_head_of_team(const string head_of_team) {
+    this->head_of_team=head_of_team;
+}

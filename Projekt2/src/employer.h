@@ -11,6 +11,10 @@ class Employer : public Person {
 private:
     string head_of_team;
 
+public:
+    Employer (const string &name, const string &surname, int age);
+    void printAll();
+    void set_head_of_team(const string head_of_team);
 };
 
 
