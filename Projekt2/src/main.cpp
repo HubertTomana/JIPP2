@@ -10,14 +10,14 @@
 #include <fstream>
 #include <string>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     if (argc != 3) {
         cout << "Podano niewlasciwa ilosc argumentow" << endl;
         return 0;
     }
     vector<Employer> employerVector;
     vector<Employee> employeeVector;
-    Person* wsk;
+    Person *wsk;
     int choice;
     int in_choice;
     int in_in_choice;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
         cout << "Niewlasciwe parametry wywolania programu, powinny byc dwie liczby calkowite!" << endl;
         return 0;
     }
-    if (employee_limit <=0 || employer_limit <=0) {
+    if (employee_limit <= 0 || employer_limit <= 0) {
         cout << "Nalezy podac dwie liczby dodatnie" << endl;
         return 0;
     }
@@ -185,12 +185,10 @@ int main(int argc, char* argv[]) {
                     //employerVector.at(which).printAll();
                     wsk = &employerVector.at(which);
                     wsk->printAll();
-                }
-                else {
+                } else {
                     cout << "Niewlasciwy element" << endl;
                 }
-            }
-            else if (in_choice == 2) {
+            } else if (in_choice == 2) {
                 cout << "Ktora pozycje chcesz pokazac?" << endl;
                 int which;
                 try {
@@ -207,16 +205,14 @@ int main(int argc, char* argv[]) {
                     //employeeVector.at(which).printAll();
                     wsk = &employeeVector.at(which);
                     wsk->printAll();
-                }
-                else {
+                } else {
                     cout << "Niewlasciwy element" << endl;
                 }
             }
-        }
-        else if (choice == 3) {
+        } else if (choice == 3) {
             ofstream output("employers.txt");
-            if(output.is_open()) {
-                for(vector<Employer>::iterator i = employerVector.begin(); i<employerVector.end(); i++) {
+            if (output.is_open()) {
+                for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
                     output << i->tofile();
                 }
                 output.close();
@@ -226,8 +222,8 @@ int main(int argc, char* argv[]) {
             }
 
             ofstream output2("employees.txt");
-            if(output2.is_open()) {
-                for(vector<Employee>::iterator i = employeeVector.begin(); i<employeeVector.end(); i++) {
+            if (output2.is_open()) {
+                for (vector<Employee>::iterator i = employeeVector.begin(); i < employeeVector.end(); i++) {
                     output2 << i->tofile();
                 }
                 output2.close();
@@ -236,8 +232,7 @@ int main(int argc, char* argv[]) {
                 exit(1);
             }
 
-        }
-        else if (choice==4) {
+        } else if (choice == 4) {
             cout << "Wpisz 1, jesli chcesz usunac Szefa, 2 jesli pracownika, 3 jesli caly zespol" << endl;
             try {
                 cin >> in_choice;
@@ -281,8 +276,7 @@ int main(int argc, char* argv[]) {
                             break;
                         }
                     }
-                }
-                else if (in_in_choice == 2) {
+                } else if (in_in_choice == 2) {
                     cout << "Podaj nazwisko szefa, ktorego chcesz usunac : ";
                     try {
                         cin >> tmp_surname;
@@ -303,8 +297,7 @@ int main(int argc, char* argv[]) {
                         }
                     }
                 }
-            }
-            else if (in_choice == 2) {
+            } else if (in_choice == 2) {
                 cout << "Podaj, czy chcesz usunac pracownika o podanym :" << endl << "1. Imieniu" << endl << "2. Nazwisku" << endl;
                 try {
                     cin >> in_in_choice;
@@ -336,8 +329,7 @@ int main(int argc, char* argv[]) {
                             break;
                         }
                     }
-                }
-                else if (in_in_choice == 2) {
+                } else if (in_in_choice == 2) {
                     cout << "Podaj nazwisko pracownika, ktorego chcesz usunac : ";
                     try {
                         cin >> tmp_surname;
@@ -358,8 +350,7 @@ int main(int argc, char* argv[]) {
                         }
                     }
                 }
-            }
-            else if (in_choice == 3) {
+            } else if (in_choice == 3) {
                 cout << "Podaj, ktory zespol chcesz usunac : ";
                 try {
                     cin >> tmp_team;
@@ -375,7 +366,7 @@ int main(int argc, char* argv[]) {
                     if (tmp_team == i->get_team()) {
                         employerVector.erase(i);
                         employer_number--;
-                        cout << "Usunieto szefa" << i->get_name() << " " << i->get_surname()  << "zespolu " << tmp_team << endl;
+                        cout << "Usunieto szefa" << i->get_name() << " " << i->get_surname() << "zespolu " << tmp_team << endl;
                         i--;
                     }
                 }
@@ -383,14 +374,13 @@ int main(int argc, char* argv[]) {
                     if (tmp_team == i->get_team()) {
                         employeeVector.erase(i);
                         employee_number--;
-                        cout << "Usunieto pracownika" << i->get_name() << " " << i->get_surname() <<  "zespolu " << tmp_team << endl;
+                        cout << "Usunieto pracownika" << i->get_name() << " " << i->get_surname() << "zespolu " << tmp_team << endl;
                         i--;
                     }
                 }
             }
-        }
-        else if (choice == 5) {
-            int suma=0;
+        } else if (choice == 5) {
+            int suma = 0;
             cout << "Wpisz 1, jesli chcesz wybrac Szefow, a 2, jesli pracownikow" << endl;
             try {
                 cin >> in_choice;
@@ -402,12 +392,12 @@ int main(int argc, char* argv[]) {
                 cin.ignore(1000, '\n');
                 continue;
             }
-            if (in_choice==1) {
+            if (in_choice == 1) {
                 if (employer_number < 2) {
                     cout << "Potrzeba przynajmniej dwoch szefow" << endl;
                     continue;
                 }
-                suma = employerVector.at(employer_number-1) + employerVector.at(employer_number - 2);
+                suma = employerVector.at(employer_number - 1) + employerVector.at(employer_number - 2);
                 cout << "Suma wyplat dwoch najnowszych szefow jest rowna = " << suma << endl;
             }
             if (in_choice == 2) {
@@ -418,9 +408,7 @@ int main(int argc, char* argv[]) {
                 suma = employeeVector.at(employee_number - 1) + employeeVector.at(employee_number - 2);
                 cout << "Suma wyplat dwoch najnowszych pracownikow jest rowna = " << suma << endl;
             }
-        }
-
-        else if (choice == 6) {
+        } else if (choice == 6) {
             cout << "Wpisz 1, jesli chcesz wybrac Szefa, a 2, jesli pracownika" << endl;
             try {
                 cin >> in_choice;
@@ -490,8 +478,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
             }
-        }
-        else if (choice == 7) {
+        } else if (choice == 7) {
             cout << "Wpisz 1, jesli chcesz wybrac Szefa, a 2, jesli pracownika" << endl;
             try {
                 cin >> in_choice;
@@ -561,11 +548,11 @@ int main(int argc, char* argv[]) {
                     }
                 }
             }
-        }
-        else if (choice == 8) {
+        } else if (choice == 8) {
             cout << "Koniec dzialania programu" << endl;
             break;
         }
     }
+    delete wsk;
     return 0;
 }

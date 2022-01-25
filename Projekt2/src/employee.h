@@ -9,6 +9,7 @@
 
 class Employee : public Person {
 private :
+    int *tmp = new int;
     string team = "Brak";
 public:
     Employee(const string &name, const string &surname, int age);

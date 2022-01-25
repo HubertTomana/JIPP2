@@ -9,6 +9,7 @@
 
 class Employer : public Person {
 private:
+    int *tmp = new int;
     string head_of_team;
 
 public:

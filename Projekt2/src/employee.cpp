@@ -38,5 +38,5 @@ void Employee::payment(double bonus) {
 }
 
 Employee::~Employee() {
-    cout << "Usuwanie " << name << " " << surname << endl;
+   delete tmp;
 }
