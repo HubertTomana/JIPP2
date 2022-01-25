@@ -25,3 +25,15 @@ void Employer::set_head_of_team(const string head_of_team) {
 string Employer::get_team() {
     return head_of_team;
 }
+
+int Employer::operator+(const Employer &rhs) {
+    return salary + rhs.salary;
+}
+
+void Employer::payment(int months) {
+    cout << "Po " << months << " miesiacach, szef " << name << " " << surname <<  " otrzyma " << salary*months << " wyplaty" << endl;
+}
+
+void Employer::payment(double bonus) {
+    cout << "Przy podwyzce rownej " << bonus << " szef " << name << " " << surname << " otrzyma " << salary+salary*bonus << " wyplaty" << endl;
+}

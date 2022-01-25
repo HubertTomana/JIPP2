@@ -16,6 +16,9 @@ public:
     string tofile();
     void set_team(const string team);
     string get_team();
+    int operator+(const Employee &rhs);
+    void payment (int months);
+    void payment (double bonus);
 };
 
 

@@ -24,3 +24,15 @@ void Employee::set_team(const string team) {
 string Employee::get_team() {
     return team;
 }
+
+int Employee::operator+(const Employee &rhs) {
+    return salary + rhs.salary;
+}
+
+void Employee::payment(int months) {
+    cout << "Po " << months << " miesiacach, pracownik " << name << " " << surname << " otrzyma " << salary*months << " wyplaty" << endl;
+}
+
+void Employee::payment(double bonus) {
+    cout << "Przy podwyzce rownej " << bonus << " pracownik " << name << " " << surname << " otrzyma " << salary+salary*bonus << " wyplaty" << endl;
+}
