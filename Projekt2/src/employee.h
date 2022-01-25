@@ -10,13 +10,12 @@
 class Employee : public Person {
 private :
     string team = "Brak";
-    int room_number = 0;
 public:
     Employee(const string &name, const string &surname, int age);
     void printAll();
     string tofile();
-    void setTeam(const string team);
-
+    void set_team(const string team);
+    string get_team();
 };
 
 

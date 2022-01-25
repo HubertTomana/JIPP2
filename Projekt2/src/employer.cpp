@@ -21,3 +21,7 @@ string Employer::tofile() {
 void Employer::set_head_of_team(const string head_of_team) {
     this->head_of_team=head_of_team;
 }
+
+string Employer::get_team() {
+    return head_of_team;
+}

@@ -18,8 +18,8 @@ protected:
     string role = "Brak";
 public:
     virtual void printAll()=0;
-    //virtual void print_all();
-    string getSurname();
+    string get_name();
+    string get_surname();
     Person (const string &name, const string &salary, int age, int payment, const string &role);
 };
 

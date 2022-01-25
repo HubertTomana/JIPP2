@@ -16,6 +16,7 @@ public:
     void printAll();
     string tofile();
     void set_head_of_team(const string head_of_team);
+    string get_team();
 };
 
 
