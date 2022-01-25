@@ -10,8 +10,6 @@
 #include <fstream>
 #include <string>
 
-void write(string file, int max);
-
 int main() {
     vector<Employer> employerVector;
     vector<Employee> employeeVector;
@@ -28,6 +26,7 @@ int main() {
         cout << "Wpisz 1, jesli chcesz dodac osobe" << endl;
         cout << "Wpisz 2, jesli chcesz pokazac dana osobe" << endl;
         cout << "Wpisz 3, jesli chcesz zapisac dane do bazy danych" << endl;
+        cout << "Wpisz 4, jesli chcesz usunac dana osobe" << endl;
         cout << "Wpisz 5, jesli chcesz zakonczyc program" << endl;
         cin >> choice;
         if (choice == 1) {
@@ -54,7 +53,7 @@ int main() {
                 cout << "Podaj wiek : ";
                 cin >> age;
                 employeeVector.push_back(Employee(name, surname, age));
-                cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe";
+                cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe : ";
                 cin >> tmp_string;
                 employerVector.at(employee_number).set_head_of_team(tmp_string);
                 employerVector.at(employee_number).printAll();
@@ -113,20 +112,34 @@ int main() {
             }
 
         }
+        else if (choice==4) {
+            cout << "Wpisz 1, jesli chcesz wybrac Szefa, a 2, jesli pracownika" << endl;
+            cin >> in_choice;
+            if (in_choice == 1) {
+                string tmp_surname;
+                cout << "Podaj nazwisko osoby, ktora chcesz usunac : ";
+                cin >> tmp_surname;
+                for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
+                    if (tmp_surname == i->getSurname()) {
+                        employerVector.erase(i);
+                        break;
+                    }
+
+                }
+            }
+            if (in_choice == 2) {
+                string tmp_surname;
+                cout << "Podaj nazwisko osoby, ktora chcesz usunac : ";
+                cin >> tmp_surname;
+                for (vector<Employee>::iterator i = employeeVector.begin(); i < employeeVector.end(); i++) {
+                    if (tmp_surname == i->getSurname()) {
+                        employeeVector.erase(i);
+                        break;
+                    }
+
+                }
+            }
+        }
     }
     return 0;
-}
-
-
-void write(vector<Employee> employee) {
-    ofstream output("employees.txt");
-    if(output.is_open()) {
-        for(vector<Employee>::iterator i = employee.begin(); i<employee.end(); i++) {
-            output << i->tofile();
-        }
-        output.close();
-    } else {
-        cout << "Error on opening file" << endl;
-        exit(1);
-    }
 }
