@@ -129,11 +129,29 @@ int main() {
         }
         if (choice == 2) {
             cout << "Wpisz 1, jesli chcesz wybrac Szefa, a 2, jesli pracownika" << endl;
-            cin >> in_choice;
+            try {
+                cin >> in_choice;
+                if (cin.fail()) throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!" << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');
+                continue;
+            }
             if (in_choice == 1) {
                 cout << "Ktora pozycje chcesz pokazac?" << endl;
                 int which;
-                cin >> which;
+                try {
+                    cin >> which;
+                    if (cin.fail()) throw 1;
+                }
+                catch (...) {
+                    cout << "Nie wpisales int!" << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    continue;
+                }
                 if (which < employerVector.size()) {
                     //employerVector.at(which).printAll();
                     wsk = &employerVector.at(which);
@@ -146,7 +164,16 @@ int main() {
             else if (in_choice == 2) {
                 cout << "Ktora pozycje chcesz pokazac?" << endl;
                 int which;
-                cin >> which;
+                try {
+                    cin >> which;
+                    if (cin.fail()) throw 1;
+                }
+                catch (...) {
+                    cout << "Nie wpisales int!" << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    continue;
+                }
                 if (which < employeeVector.size()) {
                     //employeeVector.at(which).printAll();
                     wsk = &employeeVector.at(which);
@@ -183,13 +210,40 @@ int main() {
         }
         else if (choice==4) {
             cout << "Wpisz 1, jesli chcesz usunac Szefa, 2 jesli pracownika, 3 jesli caly zespol" << endl;
-            cin >> in_choice;
+            try {
+                cin >> in_choice;
+                if (cin.fail()) throw 1;
+            }
+            catch (...) {
+                cout << "Nie wpisales int!" << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');
+                continue;
+            }
             if (in_choice == 1) {
                 cout << "Podaj, czy chcesz usunac szefa o podanym :" << endl << "1. Imieniu" << endl << "2. Nazwisku" << endl;
-                cin >> in_in_choice;
+                try {
+                    cin >> in_in_choice;
+                    if (cin.fail()) throw 1;
+                }
+                catch (...) {
+                    cout << "Nie wpisales int!" << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    continue;
+                }
                 if (in_in_choice == 1) {
                     cout << "Podaj imie szefa, ktorego chcesz usunac : ";
-                    cin >> tmp_name;
+                    try {
+                        cin >> tmp_name;
+                        if (cin.fail()) throw 1;
+                    }
+                    catch (...) {
+                        cout << "Niewlasciwe dane!" << endl;
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        continue;
+                    }
                     for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
                         if (tmp_name == i->get_name()) {
                             employerVector.erase(i);
@@ -201,7 +255,16 @@ int main() {
                 }
                 else if (in_in_choice == 2) {
                     cout << "Podaj nazwisko szefa, ktorego chcesz usunac : ";
-                    cin >> tmp_surname;
+                    try {
+                        cin >> tmp_surname;
+                        if (cin.fail()) throw 1;
+                    }
+                    catch (...) {
+                        cout << "Niewlasciwe dane!" << endl;
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        continue;
+                    }
                     for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
                         if (tmp_surname == i->get_surname()) {
                             employerVector.erase(i);
@@ -214,10 +277,28 @@ int main() {
             }
             else if (in_choice == 2) {
                 cout << "Podaj, czy chcesz usunac pracownika o podanym :" << endl << "1. Imieniu" << endl << "2. Nazwisku" << endl;
-                cin >> in_in_choice;
+                try {
+                    cin >> in_in_choice;
+                    if (cin.fail()) throw 1;
+                }
+                catch (...) {
+                    cout << "Nie wpisales int!" << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    continue;
+                }
                 if (in_in_choice == 1) {
                     cout << "Podaj imie pracownika, ktorego chcesz usunac : ";
-                    cin >> tmp_name;
+                    try {
+                        cin >> tmp_name;
+                        if (cin.fail()) throw 1;
+                    }
+                    catch (...) {
+                        cout << "Niewlasciwe dane!" << endl;
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        continue;
+                    }
                     for (vector<Employee>::iterator i = employeeVector.begin(); i < employeeVector.end(); i++) {
                         if (tmp_name == i->get_name()) {
                             employeeVector.erase(i);
@@ -229,7 +310,16 @@ int main() {
                 }
                 else if (in_in_choice == 2) {
                     cout << "Podaj nazwisko pracownika, ktorego chcesz usunac : ";
-                    cin >> tmp_surname;
+                    try {
+                        cin >> tmp_surname;
+                        if (cin.fail()) throw 1;
+                    }
+                    catch (...) {
+                        cout << "Niewlasciwe dane!" << endl;
+                        cin.clear();
+                        cin.ignore(1000, '\n');
+                        continue;
+                    }
                     for (vector<Employee>::iterator i = employeeVector.begin(); i < employeeVector.end(); i++) {
                         if (tmp_surname == i->get_surname()) {
                             employeeVector.erase(i);
@@ -242,7 +332,16 @@ int main() {
             }
             else if (in_choice == 3) {
                 cout << "Podaj, ktory zespol chcesz usunac : ";
-                cin >> tmp_team;
+                try {
+                    cin >> tmp_team;
+                    if (cin.fail()) throw 1;
+                }
+                catch (...) {
+                    cout << "Niewlasciwe dane!" << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    continue;
+                }
                 for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
                     if (tmp_team == i->get_team()) {
                         employerVector.erase(i);
