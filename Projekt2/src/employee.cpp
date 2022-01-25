@@ -36,3 +36,7 @@ void Employee::payment(int months) {
 void Employee::payment(double bonus) {
     cout << "Przy podwyzce rownej " << bonus << " pracownik " << name << " " << surname << " otrzyma " << salary+salary*bonus << " wyplaty" << endl;
 }
+
+Employee::~Employee() {
+    cout << "Usuwanie " << name << " " << surname << endl;
+}

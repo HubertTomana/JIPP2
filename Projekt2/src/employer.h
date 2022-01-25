@@ -13,6 +13,7 @@ private:
 
 public:
     Employer (const string &name, const string &surname, int age);
+    ~Employer();
     void printAll();
     string tofile();
     void set_head_of_team(const string head_of_team);

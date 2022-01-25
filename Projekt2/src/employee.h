@@ -12,6 +12,7 @@ private :
     string team = "Brak";
 public:
     Employee(const string &name, const string &surname, int age);
+    ~Employee();
     void printAll();
     string tofile();
     void set_team(const string team);
