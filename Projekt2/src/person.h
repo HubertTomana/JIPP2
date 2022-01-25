@@ -17,7 +17,7 @@ protected:
     int salary = 0;
     string role = "Brak";
 public:
-    //virtual void printAll();
+    virtual void printAll()=0;
     //virtual void print_all();
     string getSurname();
     Person (const string &name, const string &salary, int age, int payment, const string &role);

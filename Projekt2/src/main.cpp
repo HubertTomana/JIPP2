@@ -13,6 +13,7 @@
 int main() {
     vector<Employer> employerVector;
     vector<Employee> employeeVector;
+    Person* wsk;
     int choice=0;
     int in_choice;
     int employer_number = 0;
@@ -43,7 +44,9 @@ int main() {
                 cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe : ";
                 cin >> tmp_string;
                 employerVector.at(employer_number).set_head_of_team(tmp_string);
-                employerVector.at(employer_number).printAll();
+                //employerVector.at(employer_number).printAll();
+                wsk = &employerVector.at(employer_number);
+                wsk->printAll();
                 employer_number++;
             } else if (in_choice == 2) {
                 cout << "Podaj imie : ";
@@ -55,8 +58,10 @@ int main() {
                 employeeVector.push_back(Employee(name, surname, age));
                 cout << "Podaj, do ktorego zespolu chcesz przypisac dana osobe : ";
                 cin >> tmp_string;
-                employerVector.at(employee_number).set_head_of_team(tmp_string);
-                employerVector.at(employee_number).printAll();
+                employeeVector.at(employee_number).setTeam(tmp_string);
+                //employeeVector.at(employee_number).printAll();
+                wsk = &employeeVector.at(employee_number);
+                wsk->printAll();
                 employee_number++;
             } else {
                 cout << "Wybrano niewlasciwa opcje" << endl;
@@ -70,7 +75,9 @@ int main() {
                 int which;
                 cin >> which;
                 if (which < employerVector.size()) {
-                    employerVector.at(which).printAll();
+                    //employerVector.at(which).printAll();
+                    wsk = &employerVector.at(which);
+                    wsk->printAll();
                 }
                 else {
                     cout << "Niewlasciwy element" << endl;
@@ -81,7 +88,9 @@ int main() {
                 int which;
                 cin >> which;
                 if (which < employeeVector.size()) {
-                    employeeVector.at(which).printAll();
+                    //employeeVector.at(which).printAll();
+                    wsk = &employeeVector.at(which);
+                    wsk->printAll();
                 }
                 else {
                     cout << "Niewlasciwy element" << endl;
@@ -122,6 +131,8 @@ int main() {
                 for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
                     if (tmp_surname == i->getSurname()) {
                         employerVector.erase(i);
+                        employer_number--;
+                        cout << "Usunieto pracownika o tym nazwisku" << endl;
                         break;
                     }
 
