@@ -2,13 +2,18 @@
 // Created by huber on 25.12.2021.
 //
 
-#include "person.h"
-#include "employee.h"
-#include "employer.h"
-#include "Register.h"
+#include "../include/person.h"
+#include "../include/employee.h"
+#include "../include/employer.h"
 
+#include <vector>
 #include <fstream>
 #include <string>
+
+template <typename T>
+T new_function(T x, T y) {
+    return x + y;
+}
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
@@ -37,6 +42,7 @@ int main(int argc, char *argv[]) {
         cout << "Nalezy podac dwie liczby dodatnie" << endl;
         return 0;
     }
+    cout << "Suma parametrow wywolywania programu wynosi : " << new_function(employee_limit, employer_limit) << endl;
     string tmp_name;
     string tmp_surname;
     string tmp_team;

@@ -2,7 +2,7 @@
 // Created by huber on 25.12.2021.
 //
 
-#include "employer.h"
+#include "../include/employer.h"
 
 Employer::Employer(const string &name, const string &surname, int age) : Person(name, surname, age, 5000, "Employer") {}
 
