@@ -10,7 +10,14 @@
 #include <fstream>
 #include <string>
 
-template <typename T>
+/**
+ * Szablon T, ktory zawiera funkcje new_function, wypisujaca sume parametrow wywolywania programu
+ * @tparam T typename, ustalony przy wywolywaniu funkcji
+ * @param x pierwszy parametr wywolywania programu
+ * @param y drugi parametr wywolywania programu
+ * @return suma parametrow wywolywania programu typu T
+ */
+template<typename T>
 T new_function(T x, T y) {
     return x + y;
 }
@@ -20,8 +27,17 @@ int main(int argc, char *argv[]) {
         cout << "Podano niewlasciwa ilosc argumentow" << endl;
         return 0;
     }
+    /**
+     * Wektor dla obiektow klas Employer
+     */
     vector<Employer> employerVector;
+    /**
+     * Wektor dla obiektow klas Employee
+     */
     vector<Employee> employeeVector;
+    /**
+     * Wskaznik na obiekt klasy Person, umozliwiajacy polimorfizm
+     */
     Person *wsk;
     int choice;
     int in_choice;
@@ -298,7 +314,7 @@ int main(int argc, char *argv[]) {
                         if (tmp_surname == i->get_surname()) {
                             employerVector.erase(i);
                             employer_number--;
-                            cout << "Usunieto szefa o nazwisku" << tmp_surname << endl;
+                            cout << "Usunieto szefa o nazwisku " << tmp_surname << endl;
                             break;
                         }
                     }
@@ -351,7 +367,7 @@ int main(int argc, char *argv[]) {
                         if (tmp_surname == i->get_surname()) {
                             employeeVector.erase(i);
                             employee_number--;
-                            cout << "Usunieto pracownika o nazwisku" << tmp_surname << endl;
+                            cout << "Usunieto pracownika o nazwisku " << tmp_surname << endl;
                             break;
                         }
                     }
@@ -369,18 +385,18 @@ int main(int argc, char *argv[]) {
                     continue;
                 }
                 for (vector<Employer>::iterator i = employerVector.begin(); i < employerVector.end(); i++) {
-                    if (tmp_team == i->get_team()) {
+                    if (tmp_team == i->get_head_of_team()) {
+                        cout << "Usunieto szefa " << i->get_name() << " " << i->get_surname() << " zespolu " << tmp_team << endl;
                         employerVector.erase(i);
                         employer_number--;
-                        cout << "Usunieto szefa" << i->get_name() << " " << i->get_surname() << "zespolu " << tmp_team << endl;
                         i--;
                     }
                 }
                 for (vector<Employee>::iterator i = employeeVector.begin(); i < employeeVector.end(); i++) {
                     if (tmp_team == i->get_team()) {
+                        cout << "Usunieto pracownika " << i->get_name() << " " << i->get_surname() << " zespolu " << tmp_team << endl;
                         employeeVector.erase(i);
                         employee_number--;
-                        cout << "Usunieto pracownika" << i->get_name() << " " << i->get_surname() << "zespolu " << tmp_team << endl;
                         i--;
                     }
                 }
@@ -428,7 +444,7 @@ int main(int argc, char *argv[]) {
             }
             if (in_choice == 1) {
                 double bonus;
-                cout << "Podaj wysokosc bonusu : ";
+                cout << "Podaj wspolczynnik bonusu : ";
                 try {
                     cin >> bonus;
                     if (cin.fail()) throw 1;
@@ -457,7 +473,7 @@ int main(int argc, char *argv[]) {
             }
             if (in_choice == 2) {
                 double bonus;
-                cout << "Podaj wysokosc bonusu : ";
+                cout << "Podaj wspolczynnik bonusu : ";
                 try {
                     cin >> bonus;
                     if (cin.fail()) throw 1;
